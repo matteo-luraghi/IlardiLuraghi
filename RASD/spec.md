@@ -1,0 +1,3 @@
+- The recommender system is built by S&C, therefore it is not an external user/actor
+- The interviews occour on an external platform integrated within the system
+- Companies can directly offer an internship to a student
