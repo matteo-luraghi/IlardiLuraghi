@@ -10,9 +10,9 @@ The main goals of the platform are the following:
 \subsection{Goals }
 \begin{enumerate}[label={[G\arabic{enumi}]}]
     \item Companies find suitable candidates based on the requirements of their projects and positions
-    \item Students find internships that align with their skills, experiences, and preferences.
+    \item Students proactively look for internships that align with their skills, experiences, and preferences.
     \item Students are notified when internships matching their profile become available
-    \item Companies are notified when suitable student profiles (CVs) are uploaded or updated
+    \item Companies are notified when suitable student profiles (CVs) are uploaded
     \item Companies are facilitated in managing interviews
     \item Students provide feedback about the internships
     \item Companies provide feedback about the internships
@@ -24,22 +24,11 @@ There are two primary users of the system: \textbf{Students} and \textbf{Compani
 Students are the individuals seeking internship opportunities. They will be able to create and manage their profiles by uploading their CVs, and specifying their skills, experiences, and preferences. The platform will notify students of relevant internship opportunities based on their profile information and allow them to apply directly. In addition, students can track the status of their applications and receive feedback from companies. The system also provides a recommendation engine to suggest internships tailored to students' qualifications and preferences. Students can actively participate by proactively searching for internships or passively by receiving notifications when suitable opportunities arise.\newline
 Companies are the organizations offering internship opportunities. They will be able to post internship vacancies, specifying the required skills, tasks, technologies, and terms. Companies can manage and edit their internship postings, as well as review and evaluate student applications. The system will help companies identify students who best match their internship requirements through a recommendation system. Companies will also have tools to schedule interviews, manage selections, and collect feedback on students' performance during the interview process. 
 
-The scope of the S\&C platform includes:
-\begin{itemize}
-    \item Enabling students to search, apply, and track internships
-    \item Allowing companies to post internship opportunities and evaluate applicants
-    \item Facilitating the recommendation of internships and students through tailored algorithms
-    \item Supporting the interview and selection process for companies
-    \item Providing tools for feedback and monitoring for both companies and students
-\end{itemize}
-
 \subsection{World Phenomena }
 \begin{enumerate}[label={[WP\arabic{enumi}]}]
-    \item Students update their CVs based on their experiences
-    \item Students participate in interviews with the companies
+    \item Students develop skills through experiences which end up on their CVs
     \item Students engage in internships
     \item Companies define the available internships
-    \item Companies conduct interviews with the students
     \item Students form their opinions about the internships
     \item Companies form their opinions about the internships
 \end{enumerate}
@@ -50,8 +39,9 @@ The scope of the S\&C platform includes:
     \item Students upload CVs on the platform
     \item Students browse available internships
     \item Students submit applications for internships
+    \item Students participate in interviews with the companies
+    \item Companies conduct interviews with the students
     \item Students provide feedback about internships
-    \item Students file complaints
     \item Companies create internships announces
     \item Companies review students' profiles
     \item Companies review students' applications
@@ -60,7 +50,7 @@ The scope of the S\&C platform includes:
 
 \textbf{Machine controlled}
 \begin{enumerate}[label={[SP\arabic{enumi}]}]
-    \setcounter{enumi}{9} % need to update if the number of world controlled changes
+    \setcounter{enumi}{10} % need to update if the number of world controlled changes
     \item The system sends notifications to students about internships matching their profiles
     \item The system sends notifications to companies about suitable student profiles
     \item The system generates internship recommendations for students
@@ -69,14 +59,16 @@ The scope of the S\&C platform includes:
     \item The system collects structured questionnaire responses during interviews
     \item The system prompts students to provide feedback
     \item The system prompts companies to provide feedback
-    \item The system logs complaints from students
-    \item The system logs complaints from companies
     \item The system tracks the status of matchmaking processes and ongoing internships
-    \item The system provides reports on internship outcomes and matching statistics
 \end{enumerate}
 
 \section{Definitions, Acronyms, Abbreviations }
 \subsection{Definitions }
+
+\begin{itemize}
+    \item \textbf{Recommendation Engine}: System which manages the recommandation of students' CVs to companies and of internships to students
+\end{itemize}
+
 \subsection{Acronyms }
 \begin{itemize}
     \item S\&C: Students\&Companies
@@ -105,11 +97,9 @@ The document is based on the following materials:
 \section{Document Structure }
 \begin{enumerate}
     \item \textbf{Introduction}: it aims to describe the project briefly. In particular, it’s focused on the reasons and the goals that are going to be achieved with its development
-    \item \textbf{Overall Description}: it is a high-level description of how the system works with
-    a detailed explanation of the phenomena that involve the world, the machine or
-    both, there is also the domain description with its assumptions
-    \item \textbf{Specific Requirements}: this section provides a detailed analysis of the requirements needed to achieve the goals. Moreover, it contains more information useful for
-    developers (i.e. constraints about HW and SW)
+    \item \textbf{Overall Description}: it is a high-level description of how the system works with a detailed explanation of the phenomena that involve the world, the machine, or
+    both. It also contains the description of the domain with its assumptions
+    \item \textbf{Specific Requirements}: this section provides a detailed analysis of the requirements needed to achieve the goals. Moreover, it contains additional information useful for developers (i.e. constraints about HW and SW)
     \item \textbf{Formal Analysis Using Alloy}: it’s a formal description of the world phenomena by the means of Alloy
     \item \textbf{Effort Spent}: it shows the time spent to realize this document organized by section
     \item \textbf{References}: it contains the references to any documents and software used to write
