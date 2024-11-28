@@ -116,8 +116,21 @@ The document is based on the following materials:
 \section{Product perspective }
 \subsection{Scenarios }
 \textbf{Student uploads CV}
+Student A wants to upload his CV, so he enters the S\&C's platform, once on the homepage he browses
+to the "profile" section, where he can drag and drop or select the file to upload from the file system.
+After the file has been uploaded, he clicks the "confirm" button to submit the CV, which will now appear
+on his profile page.
 \newline
-\textbf{Student finds an internship and applies}
+\textbf{Student actively searches for an internship, finds it and applies}
+Student B wants to look for available internships that match his skills and experiences, so he
+enters the S\&C's platform, once on the homepage he is greeted with a list of available internships
+suggested to him by the system, he browses them and then selects the one which suits him the most.
+The system shows the student the page containing the internship's details, he clicks
+on the "apply" button to enrol. Consequently, the system prompts a confirmation message and redirects the student to the homepage.
+\newline
+\textbf{Student applies to an internship recommended by the system }
+Student C receives a notification about an internship that matches his skills and experiences,
+he enters the S\&C's platform, and once on the homepage, he browses to the "suggested internships" section, and selects the internships he wants to check out. The system shows the student the page containing the internship's details, and he clicks on the "apply" button to enrol. Consequently, the system prompts a confirmation message and redirects the student to the homepage.
 \newline
 \textbf{Student and company set up the interview}
 \newline
@@ -135,6 +148,7 @@ The document is based on the following materials:
 
 \subsection{Domain Class Diagrams }
 \includegraphics[width=\textwidth]{RASD/images/domain class diagram.png}
+Figure X represents the domain class diagram. The student class is composed of a single CV, it is the one which applies to an internship announcement. The status of the application is initially "APPLIED", then it changes to either "APPROVED" or "REJECTED" as soon as the company reviews the application. If the application is approved, the system helps the student and the company to schedule an interview via a third-party meeting application.
 
 \subsection{State Diagrams }
 \textbf{Internship Application}
@@ -147,6 +161,9 @@ The document is based on the following materials:
 \section{Product functions }
 
 \section{User characteristics }
+\subsection{Student }
+\subsection{Company }
+
 \subsection{Student}
 \subsection{Company}
 
