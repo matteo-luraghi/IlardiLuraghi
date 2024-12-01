@@ -21,7 +21,7 @@ The main goals of the platform are the following:
 \section{Scope }
 In this section, we will define S\&C platform domain.\newline
 There are two primary users of the system: \textbf{Students} and \textbf{Companies}.\newline
-Students are the individuals seeking internship opportunities. They will be able to create and manage their profiles by uploading their CVs, and specifying their skills, experiences, and preferences. The platform will notify students of relevant internship opportunities based on their profile information and allow them to apply directly. In addition, students can track the status of their applications and receive feedback from companies. The system also provides a recommendation engine to suggest internships tailored to students' qualifications and preferences. Students can actively participate by proactively searching for internships or passively by receiving notifications when suitable opportunities arise.\newline
+Students are the individuals seeking internship opportunities. They can create and manage their profiles by uploading their CVs, and specifying their skills, experiences, and preferences. The platform will notify students of relevant internship opportunities based on their profile information and allow them to apply directly. In addition, students can track the status of their applications and receive feedback from companies. The system also provides a recommendation engine to suggest internships tailored to students' qualifications and preferences. Students can actively participate by proactively searching for internships or passively by receiving notifications when suitable opportunities arise.\newline
 Companies are the organizations offering internship opportunities. They will be able to post internship vacancies, specifying the required skills, tasks, technologies, and terms. Companies can manage and edit their internship postings, as well as review and evaluate student applications. The system will help companies identify students who best match their internship requirements through a recommendation system. Companies will also have tools to schedule interviews, manage selections, and collect feedback on students' performance during the interview process. 
 
 \subsection{World Phenomena }
@@ -75,7 +75,7 @@ Companies are the organizations offering internship opportunities. They will be 
 \begin{itemize}
     \item S\&C: Students\&Companies
     \item UI: User Interface
-    \item UML: Unified Modelling Language
+    \item UML: Unified Modeling Language
 \end{itemize}
 
 \subsection{Abbreviations }
@@ -115,40 +115,72 @@ The document is based on the following materials:
 
 \section{Product perspective }
 \subsection{Scenarios }
-\textbf{Student uploads CV}
-Student A wants to upload his CV, so he enters the S\&C's platform, once on the homepage he browses
-to the "profile" section, where he can drag and drop or select the file to upload from the file system.
+\textbf{Student uploads CV}\newline
+Student A wants to upload his CV, so he logs into the S\&C platform. From the homepage, he navigates to the "profile" section, where he can drag and drop or select the file to upload from the file system.
 After the file has been uploaded, he clicks the "confirm" button to submit the CV, which will now appear
 on his profile page.
 \newline
-\textbf{Student actively searches for an internship, finds it and applies}
+\newline
+\textbf{Student actively searches for an internship, finds it and applies}\newline
 Student B wants to look for available internships that match his skills and experiences, so he
-enters the S\&C's platform, once on the homepage he is greeted with a list of available internships
+logs into the S\&C platform. On the homepage he is greeted with a list of available internships
 suggested to him by the system, he browses them and then selects the one which suits him the most.
 The system shows the student the page containing the internship's details, he clicks
 on the "apply" button to enrol. Consequently, the system prompts a confirmation message and redirects the student to the homepage.
 \newline
+\newline
 \textbf{Student applies to an internship recommended by the system }
 Student C receives a notification about an internship that matches his skills and experiences,
-he enters the S\&C's platform, and once on the homepage, he browses to the "suggested internships" section, and selects the internships he wants to check out. The system shows the student the page containing the internship's details, and he clicks on the "apply" button to enrol. Consequently, the system prompts a confirmation message and redirects the student to the homepage.
+he logs into the S\&C's platform. From the homepage, he navigates to the "suggested internships" section and selects the internships he wants to check out. The system shows the student the page containing the internship's details, and he clicks on the "apply" button to enrol. Consequently, the system prompts a confirmation message and redirects the student to the homepage.
 \newline
-\textbf{Student and company set up the interview}
 \newline
-\textbf{Student and company meet for the interview}
+\textbf{Company creates an internship announcement}\newline
+Company D wants to create an announcement for a newly available internship, so it logs into the S\&C platform. From the homepage, it navigates to the "internships" section, where it can click the "new" button and fill the form with all the necessary information. After filling out the form, the company can click on the "submit" button to create the internship announcement.
 \newline
-\textbf{Company reaches out to student offering an internship}
 \newline
-\textbf{Student provides feedback on an internship}
+\textbf{Company reviews a student's application}\newline
+Company E logs into the \&C platform to review student applications for an internship. From the homepage, it navigates to the "internships" section, which displays a list of internship announcements posted by the company. Company E selects a specific internship by clicking on it, which opens a detailed view of the internship.
+Within the internship's page, the company accesses the "applications" section, where it finds Student F's application. By clicking on the application, the system displays the detailed application, including the student's profile and CV. After reviewing the CV, Company E decides to either accept or reject the application.
 \newline
-\textbf{Company provides feedback on a student}
 \newline
-\textbf{Company creates an internship announcement}
+\textbf{Student and company set up the interview}\newline
+After approving Student G's application, Company H navigates to the "interviews" section of the S\&C platform. Here, the company selects and proposes three possible dates and times for the interview.
+Student G, upon logging into the platform, accesses the "interviews" section to view the proposed dates. The student can either:
+accept one of the suggested dates by clicking on it, confirming the choice; 
+request a new set of dates by clicking the "reschedule" button, prompting the company to provide alternative options.
 \newline
-\textbf{Company reviews a student's application}
+\newline
+\textbf{Student and company meet for the interview}\newline
+At the agreed-upon date and time, Company I and Student L log into the S\&C platform using their credentials. Both navigate to the "interviews" section, where a link to the third-party meeting application is available. By clicking the link, they are redirected to the meeting platform and start the interview.
+\newline
+\newline
+\textbf{Company reaches out to student offering an internship}\newline
+Company M logs into the S\&C platform to identify a suitable candidate for one of its internships. From the homepage, the company navigates to the "internships" section and selects a specific internship.
+Within the internship's page, Company M accesses the "suggestions" section, where the system provides a list of recommended students. After reviewing the suggestions, the company selects the most suitable student and clicks the "notify" button to send Student N a notification encouraging them to apply for the internship.
+\newline
+\newline
+\textbf{Student provides feedback on an internship}\newline
+\newline
+\newline
+\textbf{Company provides feedback on a student}\newline
+
 
 \subsection{Domain Class Diagrams }
 \includegraphics[width=\textwidth]{RASD/images/domain class diagram.png}
-Figure X represents the domain class diagram. The student class is composed of a single CV, it is the one which applies to an internship announcement. The status of the application is initially "APPLIED", then it changes to either "APPROVED" or "REJECTED" as soon as the company reviews the application. If the application is approved, the system helps the student and the company to schedule an interview via a third-party meeting application.
+\textbf{Domain Class Diagram Description }\newline
+The Student class is associated with a single CV, which is the document used to apply for an internship. A Student submits their application in response to an Internship Announcement. Each application has a Status that is initially set to APPLIED. After the company reviews the application, the Status transitions to either APPROVED or REJECTED.
+For applications marked as APPROVED, the system facilitates scheduling an interview between the student and the company through a third-party meeting application.
+Companies can offer multiple Internships, which are advertised through Internship Announcements. These announcements are the interface where students submit their applications.
+The system incorporates a Recommendation Engine that provides two types of recommendations:
+\begin{enumerate}
+    \item Internship Recommendations: A list of internship opportunities proposed to students based on their profiles and preferences
+    \item Student Recommendations: A selection of student profiles proposed to companies based on their requirements and preferences
+\end{enumerate}
+The system also supports Feedback Mechanisms to enhance transparency and improve future recommendations:
+\begin{enumerate}
+    \item Student Feedback: After completing an internship, students can provide feedback about the internship experience and the company
+    \item Company Feedback: Companies can provide feedback on the performance and professionalism of students who have interned with them
+\end{enumerate}
 
 \subsection{State Diagrams }
 \textbf{Internship Application}
@@ -161,14 +193,20 @@ Figure X represents the domain class diagram. The student class is composed of a
 \section{Product functions }
 
 \section{User characteristics }
+Two types of users interact with the platform: students and companies
 \subsection{Student }
+Students can create an account and log in to access the platform, where they can actively search for and apply to internship opportunities or wait to receive personalized notifications for internships that align with their profile. They can also coordinate with companies to schedule interviews through the platform. After completing an internship, students have the opportunity to provide feedback about their experience.
 \subsection{Company }
-
-\subsection{Student}
-\subsection{Company}
+Companies can create an account and log in to access the platform, where they can post detailed internship announcements for students to view and apply to. They can review student applications, approve or reject them as needed, and send notifications to students regarding internships that match their profiles. Companies can also coordinate with students to schedule interviews and provide feedback on the student’s performance after the completion of an internship.
 
 \section{Assumptions, dependencies and constraints }
 \subsection{Domain Assumptions }
+The following domain assumptions are properties or conditions that the system will take for granted, they must be checked to ensure a correct platform behaviour:
+\begin{enumerate}[label={[D\arabic{enumi}]}]
+    \item User must have a reliable connection
+    \item Students properly insert information about their skills and experiences in their CVs
+    \item Companies properly insert information about internships in the announcements
+\end{enumerate}
 
 \newpage
 
