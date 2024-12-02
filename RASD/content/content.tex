@@ -122,13 +122,18 @@ After the file has been uploaded, they click the "Confirm" button to submit the 
 \newline
 \textbf{Student actively searches for an internship, finds it and applies}\newline
 Student B wants to look for available internships that match their skills and experiences, so they
-log into the S\&C platform. On the homepage they are greeted with a list of available internships
-suggested to them by the system, they browse them and then select the one which suits them the most.
+log into the S\&C platform. On the homepage they are greeted with a list of available internships, they browse them and then select the one which suits them the most.
 The system shows Student B the page containing the internship's details, they click on the "Apply" button to enrol. Consequently, the system prompts a confirmation message and redirects Student B to the homepage.
 \newline
 \newline
-\textbf{Student applies to an internship recommended by the system }
-Student C receives a notification about an internship either from the recommendation system or from a specific Company D who reached out to them, they log into the S\&C's platform. From the homepage, they navigate to the "Suggested internships" section and select the internships they want to check out. The system shows Student C the page containing the internship's details, and they click on the "Apply" button to enrol. Consequently, the system prompts a confirmation message and redirects Student C to the homepage.
+\textbf{Student applies to an internship proposed by a company }\newline
+Student C receives a notification about an internship from a specific Company D who reached out to them, they log into the S\&C's platform. From the homepage, they navigate to the "Company proposals" section and select the internships they want to check out. The system shows Student C the page containing the internship's details, and they click on the "Apply" button to enrol. Consequently, the system prompts a confirmation message and redirects Student C to the homepage.
+\newline
+\newline
+\textbf{Student applies to an internship recommended by the system }\newline
+Student D wants to look for available internships that match their skills and experiences, so they
+log into the S\&C platform. From the homepage, they navigate to the "Suggestions" section, where there's a list of internships recommended by the system based on Student D's skills and experiences, they browse them and then select the one which suits them the most.
+The system shows Student B the page containing the internship's details, they click on the "Apply" button to enrol. Consequently, the system prompts a confirmation message and redirects Student B to the homepage.
 \newline
 \newline
 \textbf{Company creates an internship announcement}\newline
@@ -157,7 +162,7 @@ Within the internship's page, Company N accesses the "Suggestions" section, wher
 \newline
 \newline
 \textbf{Student provides feedback on an internship}\newline
-RICORDARE METTERE ANCHE 
+RICORDARE METTERE ANCHE POSSIBILITA' DI RISPONDERE
 \newline
 \newline
 \textbf{Company provides feedback on a student}\newline
@@ -210,7 +215,7 @@ The system allows companies to post detailed internship announcements. These pos
 \newline
 \newline
 \textbf{Internship application}\newline
-The system enables students to apply for internships that align with their skills and experiences. Students can browse available opportunities, and the system ensures that the internships presented match their profile based on the information provided in their CVs. Once a suitable internship is identified, students can submit their application directly through the platform, allowing organizations to accept or reject their submissions.
+The system enables students to apply for internships that align with their skills and experiences. Students can browse available opportunities. Once a suitable internship is identified, students can submit their application directly through the platform, allowing organizations to accept or reject their submissions.
 \newline
 \newline
 \textbf{Student recommendation}\newline
@@ -230,11 +235,11 @@ The system enables companies and students to meet through an online interface fo
 \newline
 \newline
 \textbf{Student feedback submission}\newline
-The system collects feedback from students about their internship experiences. After completing an internship, students are asked to provide their opinions and evaluations through a dedicated feedback form on the platform.
+The system collects feedback from students about their internship experiences. After completing an internship, students are asked to provide their opinions and evaluations through a dedicated feedback form on the platform. If the company wishes, it can leave a comment regarding the student's feedback.
 \newline
 \newline
 \textbf{Company feedback submission}\newline
-The system collects feedback from companies regarding the performance of students participating in their internships. After an internship concludes, companies are asked to submit evaluations through the platform, detailing the students' skills, professionalism, and overall contributions.
+The system collects feedback from companies regarding the performance of students participating in their internships. After an internship concludes, companies are asked to submit evaluations through the platform, detailing the students' skills, professionalism, and overall contributions. If the student wishes to, he can leave a public comment or answer on the company's feedback.
 \newline
 \newline
 
@@ -285,43 +290,57 @@ The user uses an internet connection to access the platform. The platform must b
     \setcounter{enumi}{2}
     \item The System shall allow Companies to create internship announcement posts containing all the needed details
     \item The System shall allow Companies to modify existing internship announcement posts updating the details
-    \item The system shall allow Companies to close existing internship announcement posts blocking new student applications
-    \item The system shall allow Companies to delete existing internship announcement posts
+    \item The System shall allow Companies to close existing internship announcement posts blocking new student applications
+    \item The System shall allow Companies to delete existing internship announcement posts
 \end{enumerate}
 \textbf{Internship application}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{10}
-    \item 
+    \setcounter{enumi}{6}
+    \item The System shall allow Students to view the details of any internship
+    \item The System shall allow Students to browse the suggested internships
+    \item The System shall allow Students to apply for an internship
+    \item The System shall allow Students to accept an internship proposal from a Company
+    \item The System shall allow Students to check the status of the applications they've submitted
 \end{enumerate}
 \textbf{Student recommendation}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{10}
-    \item
+    \setcounter{enumi}{11}
+    \item The System shall use the Recommendation Engine to analyze student profiles to match them with internships proposed by companies
+    \item The System shall suggest to Companies Students who match their requirements for an internship proposal
 \end{enumerate}
 \textbf{Company recommendation}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{10}
-    \item
+    \setcounter{enumi}{13}
+    \item The System shall use the Recommendation Engine to analyze student profiles to match them with internships proposed by companies
+    \item The System shall suggest to Students Companies that offer internships aligned with their skills and experiences
 \end{enumerate}
 \textbf{Company reach out}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{10}
-    \item
+    \setcounter{enumi}{15}
+    \item The system shall allow companies to review the suggested students to select the ones they wish to contact for an internship proposal
+    \item The system shall send a notification to Students selected by Companies for an internship
 \end{enumerate}
 \textbf{Interview hosting}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{10}
-    \item
+    \setcounter{enumi}{17}
+    \item The System shall allow Companies to propose three possible dates to Students for an interview
+    \item The System shall allow Students to accept one of the proposed dates for an interview
+    \item The System shall allow Students to ask Companies to provide new possible dates for an interview
+    \item The System shall allow the hosting of online interviews between Companies and Students
 \end{enumerate}
 \textbf{Student feedback submission}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{10}
-    \item
+    \setcounter{enumi}{21}
+    \item The System shall ask Students to provide feedback about an internship by filling out a form
+    \item The System shall allow Companies to publicly comment on the feedback they received
+    \item The System shall allow Students to see feedback about Companies from past internships they offered
 \end{enumerate}
 \textbf{Company feedback submission}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{10}
-    \item
+    \setcounter{enumi}{24}
+    \item The System shall ask Companies to provide feedback about the Student's performance by filling out a form
+    \item The System shall allow Students to publicly comment on the feedback they received 
+    \item The System shall allow Companies to see feedback about Students from past internships partook in
 \end{enumerate}
 
 \subsection{Use Cases Diagrams }
