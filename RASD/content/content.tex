@@ -27,8 +27,9 @@ Companies are the organizations offering internship opportunities. They will be 
 \subsection{World Phenomena }
 \begin{enumerate}[label={[WP\arabic{enumi}]}]
     \item Students develop skills through experiences which end up on their CVs
-    \item Students engage in internships
     \item Companies define the available internships
+    \item Students decide they want to partake in an internship
+    \item Students conduct internships
     \item Students form their opinions about the internships
     \item Companies form their opinions about the internships
 \end{enumerate}
@@ -52,7 +53,7 @@ Companies are the organizations offering internship opportunities. They will be 
 
 \textbf{Machine controlled}
 \begin{enumerate}[label={[SP\arabic{enumi}]}]
-    \setcounter{enumi}{10} % need to update if the number of world controlled changes
+    \setcounter{enumi}{12} % need to update if the number of world controlled changes
     \item The system sends notifications to students about internships matching their profiles
     \item The system sends notifications to companies about suitable student profiles
     \item The system generates internship recommendations for students
@@ -158,7 +159,7 @@ Within the internship's page, Company K accesses the "Suggestions" section, wher
 \newline
 \newline
 \textbf{Student and company set up the interview}\newline
-After approving Student M's application, Company N navigates to the "Interviews" section of the S\&C platform. Here, Company N selects and proposes three possible dates and times for the interview.
+After approving Student M's application, Company N navigates to the "Interviews" section of the S\&C platform. Here, Company N browses the students which were accepted for an interview, finds student M's entry, and clicking on it must now select and propose three possible dates and times for the interview through a calendar pop-up.
 Student M, upon logging into the platform, accesses the "Interviews" section to view the proposed dates. Student M can either:
 accept one of the suggested dates by clicking on it, confirming the choice; 
 request a new set of dates by clicking the "Reschedule" button, prompting Company N to provide alternative options.
@@ -354,10 +355,10 @@ The user uses an internet connection to access the platform. The platform must b
 
 \subsection{Use Cases Diagrams}
 
-\subsection{Use Cases}
+S\subsection{Use Cases}
 
 \begin{center}
-    \textbf{[UC1] - User signs up}
+    \textbf{[UC1] User signs up}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -375,6 +376,7 @@ The user uses an internet connection to access the platform. The platform must b
     \textbf{Event Flow} & 
     \begin{enumerate}
         \item The user presses the "Sign up" button
+        \item The user selects its role pressing either the "Company" or the "Student" button
         \item The user fills out a registration form
         \item The user submits the form
     \end{enumerate} \\ \hline
@@ -384,13 +386,13 @@ The user uses an internet connection to access the platform. The platform must b
     \end{itemize} \\ \hline
     \textbf{Exceptions} & 
     \begin{itemize}
-        \item [4.] A user with these credentials already exists. The system sends a warning and does not allow the signup process to continue, redirecting the user to the "Log in" page
+        \item [5.] A user with these credentials already exists. The system sends a warning and does not allow the signup process to continue, redirecting the user to the "Log in" page
     \end{itemize} \\ \hline
     \end{tabular}
     \newline
     \newline
     
-    \textbf{[UC2] - User logs in}
+    \textbf{[UC2] User logs in}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -425,7 +427,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     \newline
     
-    \textbf{[UC3] - Student uploads CV}
+    \textbf{[UC3] Student uploads CV}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -443,9 +445,8 @@ The user uses an internet connection to access the platform. The platform must b
     \textbf{Event Flow} & 
     \begin{enumerate}
         \item The student presses the "Profile" button
-        \item The student presses the "Upload CV" button
         \item The student uploads the CV via the file system
-        \item The student presses the "Upload" button
+        \item The student presses the "Upload CV" button
     \end{enumerate} \\ \hline
     \textbf{Exit Condition} & 
     \begin{itemize}
@@ -453,14 +454,14 @@ The user uses an internet connection to access the platform. The platform must b
     \end{itemize} \\ \hline
     \textbf{Exceptions} & 
     \begin{itemize}
-        \item [5a.] The file is not a PDF. The system sends a warning to the user
+        \item [4a.] The file is not a PDF. The system sends a warning to the user
     \end{itemize} \\ \hline
     \end{tabular}
     \newline
     \newline
     
     
-    \textbf{[UC4] - Student applies to an internship he found}
+    \textbf{[UC4] Student applies to an internship he found}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -492,7 +493,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     
     
-    \textbf{[UC5] - Student checks an internship proposed by a company}
+    \textbf{[UC5] Student checks an internship proposed by a company}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -526,7 +527,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     
     
-    \textbf{[UC6] - Student checks an internship proposed by the system}
+    \textbf{[UC6] Student checks an internship proposed by the system}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -558,7 +559,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     
     
-    \textbf{[UC7] - Company creates an internship announcement}
+    \textbf{[UC7] Company creates an internship announcement}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -593,7 +594,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     
     
-    \textbf{[UC8] - Company reviews a student's application}
+    \textbf{[UC8] Company reviews a student's application}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -627,7 +628,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     
     
-    \textbf{[UC9] - Company offers an internship to a student}
+    \textbf{[UC9] Company offers an internship to a student}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -660,7 +661,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     
     
-    \textbf{[UC10] - Student and company set up the interview}
+    \textbf{[UC10] Student and company set up the interview}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -680,6 +681,7 @@ The user uses an internet connection to access the platform. The platform must b
     \end{itemize}\\ \hline
     \textbf{Event Flow} & 
     \begin{enumerate}
+        \item The company goes to the "Interviews" section and presses on the student's name
         \item The company selects three possible dates from a calendar and presses the "Submit" button
         \item The student enters the "Applications" section and selects an internship which he has been admitted to
         \item The student chooses one of the dates by pressing one of the three buttons relative to the three dates
@@ -691,14 +693,14 @@ The user uses an internet connection to access the platform. The platform must b
     \end{itemize}\\ \hline
     \textbf{Exceptions} & 
     \begin{itemize}
-        \item [3a.] The student is not available on any of the dates and thus requests a new batch of dates by pressing on the "Reschedule" button. The company receives a message telling it to propose three new dates
+        \item [4a.] The student is not available on any of the dates and thus requests a new batch of dates by pressing on the "Reschedule" button. The company receives a message telling it to propose three new dates
     \end{itemize} \\ \hline
     \end{tabular}
     \newline
     \newline
     
     
-    \textbf{[UC11] - Student and company meet for the interview}
+    \textbf{[UC11] Student and company meet for the interview}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -733,7 +735,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     \newline
     
-    \textbf{[UC12] - Student provides feedback on an internship}
+    \textbf{[UC12] Student provides feedback on an internship}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -769,7 +771,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     \newline
     
-    \textbf{[UC13] - Company provides feedback on a student}
+    \textbf{[UC13] Company provides feedback on a student}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -806,7 +808,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     \newline
 
-    \textbf{[UC14] - Student answers a comment about them}
+    \textbf{[UC14] Student answers a comment about them}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -842,7 +844,7 @@ The user uses an internet connection to access the platform. The platform must b
     \newline
     \newline
     
-    \textbf{[UC15] - Company answers a comment about an internship if offered}
+    \textbf{[UC15] Company answers a comment about an internship if offered}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -884,8 +886,52 @@ The user uses an internet connection to access the platform. The platform must b
 \subsection{Sequence Diagrams}
 
 \begin{center}
+
+    \textbf{[UC1] User signs up}
+
+
+    \textbf{[UC2] User logs in}
+
+
+    \textbf{[UC3] Student uploads CV}
+    \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/StudentUploadsCV.png}
+
+    \textbf{[UC4] Student applies to an internship he found}
+    \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/StudentAppliesToInernshipFound.png}
+
+    \textbf{[UC5] Student checks an internship proposed by a company}
+    \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/StudentChecksInternshipProposedByCompany.png}
+
+    \textbf{[UC6] Student checks an internship proposed by the system}
+    \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/StudentChecksInternshipProposedBySystem.png}
+    
     \textbf{[UC7] Company creates an internship announcement}
     \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/CompanyCreatesInternshipAnnouncement.png}
+
+
+    \textbf{[UC8] Company reviews a student's application}
+
+
+    \textbf{[UC9] Company offers an internship to a student}
+
+
+    \textbf{[UC10] Student and company set up the interview}
+
+
+    \textbf{[UC11] Student and company meet for the interview}
+
+
+    \textbf{[UC12] Student provides feedback on an internship}
+
+
+    \textbf{[UC13] Company provides feedback on a student}
+
+
+    \textbf{[UC14] Student answers a comment about them}
+
+
+    \textbf{[UC15] Company answers a comment about an internship if offered}
+    
 \end{center}
 
 \subsection{Requirements Mapping}
