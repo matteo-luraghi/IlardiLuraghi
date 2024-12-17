@@ -11,8 +11,8 @@ The main goals of the platform are the following:
 \begin{enumerate}[label={[G\arabic{enumi}]}]
     \item Companies find suitable candidates based on the requirements of their projects and positions
     \item Students proactively look for internships that align with their skills, experiences, and preferences.
-    \item Students are notified when internships matching their profile become available
-    \item Companies are notified when suitable student profiles (CVs) are uploaded
+    \item Students find internships matching their profile
+    \item Companies find suitable student profiles
     \item Companies are facilitated in managing interviews
     \item Students provide feedback about the internships
     \item Companies provide feedback about the internships
@@ -99,7 +99,7 @@ The document is based on the following materials:
 
 \section{Document Structure }
 \begin{enumerate}
-    \item \textbf{Introduction}: it aims to describe the project briefly. In particular, it’s focused on the reasons and the goals that are going to be achieved with its development
+    \item \textbf{Introduction}: it aims at describing the project briefly. In particular, it focuses on the reasons and the goals that are going to be achieved with its development
     \item \textbf{Overall Description}: it is a high-level description of how the system works with a detailed explanation of the phenomena that involve the world, the machine, or
     both. It also contains the description of the domain with its assumptions
     \item \textbf{Specific Requirements}: this section provides a detailed analysis of the requirements needed to achieve the goals. Moreover, it contains additional information useful for developers (i.e. constraints about HW and SW)
@@ -148,33 +148,44 @@ The system shows Student G the page containing the internship's details, they cl
 Company H wants to create an announcement for a newly available internship, so it logs into the S\&C platform. From the homepage, it navigates to the "Internships" section, where it can click the "New" button and fill the form with all the necessary information. After completing the form, the company can click the "Submit" button to create the internship announcement.
 \newline
 \newline
+\textbf{Company modifies an existing internship announcement}\newline
+Company I has changed some details regarding an existing internship and must now modify the announcement accordingly. They log in to the S\&C platform, and navigate to the "Internships" section. They select the internship that must be modified and click on the "Modify" button. They can now insert new information or change the old details, and at last confirm the changes by pressing on the "Submit" button.
+\newline
+\newline
+\textbf{Company deletes an existing internship announcement}\newline
+Company J has decided to remove an internship opportunity and must now delete the announcement on the platform. They log in to the S\&C platform, and navigate to the "Internships" section. They select the internship that must be deleted and click on the "Delete" button. A pop-up warning asks Company J for confirmation, and when the "Confirm" button is pressed the post is removed by the system.
+\newline
+\newline
+\textbf{Company deletes an existing internship announcement}\newline
+\newline
+\newline
 \textbf{Company reviews a student's application}\newline
-Company I logs into the S\&C platform to review student applications for an internship. From the homepage, it navigates to the "Internships" section, which displays a list of internship announcements posted by the company. Company I selects a specific internship by clicking on it, which opens a detailed view of the internship.
-Within the internship's page, Company I accesses the "Applications" section, where it finds Student J's application. The system displays the detailed application, including Student J's profile and CV, by clicking on the application. After reviewing the CV, Company I decides to either accept or reject the application by clicking either the "Accept" or the "Reject" buttons.
+Company K logs into the S\&C platform to review student applications for an internship. From the homepage, it navigates to the "Internships" section, which displays a list of internship announcements posted by the company. Company K selects a specific internship by clicking on it, which opens a detailed view of the internship.
+Within the internship's page, Company K accesses the "Applications" section, where it finds Student L's application. The system displays the detailed application, including Student L's profile and CV, by clicking on the application. After reviewing the CV, Company K decides to either accept or reject the application by clicking either the "Accept" or the "Reject" buttons.
 \newline
 \newline
 \textbf{Company reaches out to student offering an internship}\newline
-Company K logs into the S\&C platform to identify a suitable candidate for one of its internships. From the homepage, Company K navigates to the "Internships" section and selects a specific internship.
-Within the internship's page, Company K accesses the "Suggestions" section, where the system provides a list of recommended students. After reviewing the suggestions, Company K selects the most suitable student and clicks the "Notify" button to send Student L a notification encouraging them to apply for the internship. If they accept the offer, they are ready to schedule an interview, without the need from Company K to evaluate Student L's CV again.
+Company M logs into the S\&C platform to identify a suitable candidate for one of its internships. From the homepage, Company M navigates to the "Internships" section and selects a specific internship.
+Within the internship's page, Company M accesses the "Suggestions" section, where the system provides a list of recommended students. After reviewing the suggestions, Company M selects the most suitable student and clicks the "Notify" button to send Student N a notification encouraging them to apply for the internship. If they accept the offer, they are ready to schedule an interview, without the need from Company M to evaluate Student N's CV again.
 \newline
 \newline
 \textbf{Student and company set up the interview}\newline
-After approving Student M's application, Company N navigates to the "Interviews" section of the S\&C platform. Here, Company N browses the students which were accepted for an interview, finds student M's entry, and clicking on it must now select and propose three possible dates and times for the interview through a calendar pop-up.
-Student M, upon logging into the platform, accesses the "Interviews" section to view the proposed dates. Student M can either:
+After approving Student O's application, Company P navigates to the "Interviews" section of the S\&C platform. Here, Company P browses the students which were accepted for an interview, finds Student O's entry where it's possible to select and propose three possible dates and times for the interview through a calendar pop-up.
+Student O, upon logging into the platform, accesses the "Applications--" section to view the proposed dates. Student O can either:
 accept one of the suggested dates by clicking on it, confirming the choice; 
 request a new set of dates by clicking the "Reschedule" button, prompting Company N to provide alternative options.
 \newline
 \newline
 \textbf{Student and company meet for the interview}\newline
-At the agreed-upon date and time, Company O and Student P log into the S\&C platform using their credentials. Both navigate to the "Interviews" section, where a link to the third-party meeting application is available. By clicking the link, they are redirected to the meeting platform and start the interview.
+At the agreed-upon date and time, Company Q and Student R log into the S\&C platform using their credentials. Both navigate to the "Interviews" section, where a link to the third-party meeting application is available. By clicking the link, they are redirected to the meeting platform and start the interview.
 \newline
 \newline
 \textbf{Student provides feedback on an internship}\newline
-Student Q logs into the S\&C platform to provide feedback about an internship with Company R. From the homepage, Student Q navigates to the "Internships" section and selects a specific internship. There's a comment section where Student Q can provide feedback or respond to comments from Company R about Student Q. After typing their comment, they click the "Submit" button, and the comment is displayed in the section.
+Student S logs into the S\&C platform to provide feedback about an internship with Company T. From the homepage, Student S navigates to the "Internships" section and selects a specific internship. There's a comment section where Student S can provide feedback or respond to comments from Company T about Student S. After typing their comment, they click the "Submit" button, and the comment is displayed in the section.
 \newline
 \newline
 \textbf{Company provides feedback on a student}\newline
-Company S logs into the S\&C platform to provide feedback about Student T. From the homepage, Company S navigates to the "Internships" section and selects a specific internship. There's a comment section where Company S can provide feedback or respond to comments from Student T about the internship with Company S. After typing their comment, it clicks the "Submit" button, and the comment is displayed in the section.
+Company U logs into the S\&C platform to provide feedback about Student V. From the homepage, Company U navigates to the "Internships" section and selects a specific internship. There's a comment section where Company U can provide feedback or respond to comments from Student V about the internship with Company U. After typing their comment, it clicks the "Submit" button, and the comment is displayed in the section.
 
 \subsection{Domain Class Diagrams }
 \includegraphics[width=\textwidth]{RASD/images/DomainClassDiagram.png}
@@ -196,20 +207,20 @@ The system also supports Feedback Mechanisms to enhance transparency and improve
 \subsection{State Diagrams }
 \textbf{Internship Application}
 \begin{center}
-    \includegraphics[width=\textwidth]{RASD/images/ApplicationStateDiagram.png}
+    \includegraphics[width=\textwidth]{RASD/images/stateDiagrams/ApplicationStateDiagram.png}
 \end{center}
 The Application exclusively refers to the process of preliminary admission to the interview. Because of this, applications are requests for an interview from students who either received a recommendation for a company from the system or actively searched for an internship. Students who got selected directly from a company thanks to a recommendation from the system to the company are automatically admitted for an interview. 
 When an Application is submitted, its status is Pending. The company proceeds to evaluate the candidates based on their CVs, and the Application can now be rejected or accepted. If it is accepted, the company initiates the process to schedule an interview with the student who applied.
 
 \textbf{Interview}
 \begin{center}
-    \includegraphics[width=\textwidth]{RASD/images/InterviewStateDiagram.png}
+    \includegraphics[width=\textwidth]{RASD/images/stateDiagrams/InterviewStateDiagram.png}
 \end{center}
 An Interview is Proposed by the company to a student whose Application was accepted. In particular, the company proposes three possible dates for the interview. The student can either accept one of the suggested dates or refuse them, in which case the company will provide new dates. In the meantime, the status is Waiting for new dates. When the student accepts a date, the Interview is Scheduled, and on the given date it is Undergoing on the platform. 
 
 \textbf{Feedback Submission}
 \begin{center}
-    \includegraphics[width=\textwidth]{RASD/images/FeedbackStateDiagram.png}
+    \includegraphics[width=\textwidth]{RASD/images/stateDiagrams/FeedbackStateDiagram.png}
 \end{center}
 This diagram holds for both the students' and the companies' feedback. Feedback is expected from both, because of this the first state of the Feedback is Expected. When the feedback is Submitted it is now public for all to see. The party who received the feedback can now decide to optionally give a comment or answer to the statement, in which case it becomes Answered.
 
@@ -220,6 +231,10 @@ The system allows users to register on the platform through a sign-up process. W
 \newline
 \textbf{Internship announcement posting}\newline
 The system allows companies to post detailed internship announcements. These postings include comprehensive information about the internship.
+\newline
+\newline
+\textbf{Internship announcement management}\newline
+The system allows companies to manage existing internship announcements by modifying posts on the platform. Companies can decide to modify the details of the announcements or even delete them.
 \newline
 \newline
 \textbf{Internship application}\newline
@@ -295,12 +310,16 @@ The user uses an internet connection to access the platform. The platform must b
     \item The System shall allow new users to sign up by providing their personal information
     \item The System must allow registered users to sign in by providing a username and a password
 \end{enumerate}
-\textbf{Internship announcement posting}
+\textbf{Student CV management}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
     \setcounter{enumi}{2}
+    \item The System shall allow Students to upload a new CV
+\end{enumerate}
+\textbf{Internship announcement posting}
+\begin{enumerate}[label={[R\arabic{enumi}]}]
+    \setcounter{enumi}{3}
     \item The System shall allow Companies to create internship announcement posts containing all the needed details
     \item The System shall allow Companies to modify existing internship announcement posts updating the details
-    \item The System shall allow Companies to close existing internship announcement posts blocking new student applications
     \item The System shall allow Companies to delete existing internship announcement posts
 \end{enumerate}
 \textbf{Internship application}
@@ -336,7 +355,7 @@ The user uses an internet connection to access the platform. The platform must b
     \item The System shall allow Companies to propose three possible dates to Students for an interview
     \item The System shall allow Students to accept one of the proposed dates for an interview
     \item The System shall allow Students to ask Companies to provide new possible dates for an interview
-    \item The System shall allow the hosting of online interviews between Companies and Students
+    \item The System shall allow the hosting of online interviews between Companies and Students via a third party app
 \end{enumerate}
 \textbf{Student feedback submission}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
@@ -354,8 +373,9 @@ The user uses an internet connection to access the platform. The platform must b
 \end{enumerate}
 
 \subsection{Use Cases Diagrams}
+    \includegraphics[width=\textwidth]{RASD/images/UseCaseDiagram.png}
 
-S\subsection{Use Cases}
+\subsection{Use Cases}
 
 \begin{center}
     \textbf{[UC1] User signs up}
@@ -376,7 +396,7 @@ S\subsection{Use Cases}
     \textbf{Event Flow} & 
     \begin{enumerate}
         \item The user presses the "Sign up" button
-        \item The user selects its role pressing either the "Company" or the "Student" button
+        \item The user selects its role by pressing either the "Company" or the "Student" button
         \item The user fills out a registration form
         \item The user submits the form
     \end{enumerate} \\ \hline
@@ -479,7 +499,7 @@ S\subsection{Use Cases}
     \textbf{Event Flow} & 
     \begin{enumerate}
         \item The student browsing the available internships on the homepage finds one that suits him
-        \item The student presses on the internship, a view with its details opens
+        \item The student presses on the internship, and a view with its details opens
         \item The student presses the "Apply" button
     \end{enumerate} \\ \hline
     \textbf{Exit Condition} & 
@@ -512,13 +532,12 @@ S\subsection{Use Cases}
     \textbf{Event Flow} & 
     \begin{enumerate}
         \item The student presses the "Company proposals" button
-        \item The student presses the internship that is tagged as "new" in the list of internships suggested by companies, a view with the internship's details opens
-        \item The student decides whether or not to accept the internship, by clicking on the "Apply" or "Close" button
+        \item The student presses the internship that is tagged as "new" in the list of internships suggested by companies, and a view with the internship's details opens
+        \item The student decides whether or not to accept the internship, by clicking on the "Apply" button or not
     \end{enumerate} \\ \hline
     \textbf{Exit Condition} &
     \begin{itemize}
         \item The student has successfully applied to the internship, their application status is APPROVED
-        \item The student has successfully returned to the list of internships proposed by companies
     \end{itemize}
     \\ \hline
     \textbf{Exceptions} & \\ \hline
@@ -545,13 +564,12 @@ S\subsection{Use Cases}
     \textbf{Event Flow} & 
     \begin{enumerate}
         \item The student presses the "Suggestions" button
-        \item The student presses on one of the available internships, a view with the internship's details opens
-        \item The student decides whether or not to accept the internship, by pressing either the "Apply" or "Close" buttons
+        \item The student presses on one of the available internships, and a view with the internship's details opens
+        \item The student decides whether or not to accept the internship, by pressing either the "Apply" button or not
     \end{enumerate} \\ \hline
     \textbf{Exit Condition} & 
     \begin{itemize}
         \item The student has successfully applied to the internship, his application status is PENDING
-        \item The student has successfully returned to the list of internships proposed by the system
     \end{itemize} \\ \hline
     \textbf{Exceptions} & \\ \hline
     \end{tabular}
@@ -592,9 +610,75 @@ S\subsection{Use Cases}
     \end{tabular}
     \newline
     \newline
+
+        \textbf{[UC8] Company modifies an internship announcement}
+    \newline
+    \newline
+    \begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+    \textbf{Attribute} & \textbf{Description} \\ \hline
+    \textbf{Name} & Company modifies an internship announcement \\ \hline
+    \textbf{Actors} & 
+    \begin{itemize}
+        \item Company
+    \end{itemize} \\ \hline
+    \textbf{Entry Condition} & 
+    \begin{itemize}
+        \item The company has logged in to the S\&C platform
+        \item The company has previously posted the internship announcement
+    \end{itemize}\\ \hline
+    \textbf{Event Flow} & 
+    \begin{enumerate}
+        \item The company presses the "Internships" button 
+        \item The company selects the existing internship it whishes to modify and presses on its "Modify" button
+        \item The company modifies the already filled in announcement 
+        \item The company presses the "Submit" button
+    \end{enumerate} \\ \hline
+    \textbf{Exit Condition} &
+    \begin{itemize}
+        \item The company has successfully modified an existing internship announcement
+    \end{itemize} \\ \hline
+    \textbf{Exceptions} & 
+    \begin{itemize}
+        \item [5.a] The information provided by the company is invalid. The system sends a warning
+    \end{itemize} \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+    \textbf{[UC9] Company deletes an internship announcement}
+    \newline
+    \newline
+    \begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+    \textbf{Attribute} & \textbf{Description} \\ \hline
+    \textbf{Name} & Company deletes an internship announcement \\ \hline
+    \textbf{Actors} & 
+    \begin{itemize}
+        \item Company
+    \end{itemize} \\ \hline
+    \textbf{Entry Condition} & 
+    \begin{itemize}
+        \item The company has logged in to the S\&C platform
+        \item The company has previously posted the internship announcement
+    \end{itemize}\\ \hline
+    \textbf{Event Flow} & 
+    \begin{enumerate}
+        \item The company presses the "Internships" button 
+        \item The company selects the existing internship it whishes to delete and presses on its "Delete" button
+        \item The company confirms its choice by pressing the "Confirm" button that pops up
+    \end{enumerate} \\ \hline
+    \textbf{Exit Condition} &
+    \begin{itemize}
+        \item The company has successfully deleted an internship announcement
+    \end{itemize} \\ \hline
+    \textbf{Exceptions} & 
+ \\ \hline
+    \end{tabular}
+    \newline
+    \newline
     
-    
-    \textbf{[UC8] Company reviews a student's application}
+    \textbf{[UC10] Company reviews a student's application}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -628,7 +712,7 @@ S\subsection{Use Cases}
     \newline
     
     
-    \textbf{[UC9] Company offers an internship to a student}
+    \textbf{[UC11] Company offers an internship to a student}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -661,7 +745,7 @@ S\subsection{Use Cases}
     \newline
     
     
-    \textbf{[UC10] Student and company set up the interview}
+    \textbf{[UC12] Student and company set up the interview}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -681,9 +765,9 @@ S\subsection{Use Cases}
     \end{itemize}\\ \hline
     \textbf{Event Flow} & 
     \begin{enumerate}
-        \item The company goes to the "Interviews" section and presses on the student's name
-        \item The company selects three possible dates from a calendar and presses the "Submit" button
-        \item The student enters the "Applications" section and selects an internship which he has been admitted to
+        \item The company goes to the "Interviews" section
+        \item The company selects three possible dates from a calendar and presses the "Submit" button associated with the student's name
+        \item The student enters the "Applications" section and selects an internship to which they have been admitted to
         \item The student chooses one of the dates by pressing one of the three buttons relative to the three dates
         \item The third party meeting app schedules the meeting and sends the link for it to both parties
     \end{enumerate} \\ \hline
@@ -700,7 +784,7 @@ S\subsection{Use Cases}
     \newline
     
     
-    \textbf{[UC11] Student and company meet for the interview}
+    \textbf{[UC13] Student and company meet for the interview}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -724,7 +808,7 @@ S\subsection{Use Cases}
         \item The company presses the "Interviews" button
         \item The company presses on the third party meeting app link associated with the student's name
         \item The student presses the "Interviews" button
-        \item The student presses on the third party meeting app link associated with the company
+        \item The student presses on the third party meeting app link associated with the company's name
     \end{enumerate} \\ \hline
     \textbf{Exit Condition} & 
     \begin{itemize}
@@ -735,7 +819,7 @@ S\subsection{Use Cases}
     \newline
     \newline
     
-    \textbf{[UC12] Student provides feedback on an internship}
+    \textbf{[UC14] Student provides feedback on an internship}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -749,11 +833,11 @@ S\subsection{Use Cases}
     \textbf{Entry Condition} & 
     \begin{itemize}
         \item The student has logged in to the S\&C platform
-        \item The student took part in the internship they want to provide the feedback about
+        \item The student took part in the internship they want to provide feedback about
     \end{itemize}\\ \hline
     \textbf{Event Flow} & 
     \begin{enumerate}
-        \item The student presses the "Internships" button, a view with the internships they took part in opens
+        \item The student presses the "Internships" button, and a view with the internships they took part in opens
         \item The student selects the internship they want to provide feedback about, a view with the internship's details opens
         \item The student writes the feedback in the comments section
         \item The student presses the "Submit" button
@@ -771,7 +855,7 @@ S\subsection{Use Cases}
     \newline
     \newline
     
-    \textbf{[UC13] Company provides feedback on a student}
+    \textbf{[UC15] Company provides feedback on a student}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -785,13 +869,13 @@ S\subsection{Use Cases}
     \textbf{Entry Condition} & 
     \begin{itemize}
         \item The company has logged in to the S\&C platform
-        \item The company offered the internship the student it wants to provide feedback about took part in
+        \item The company offered the internship to the student It wants to provide feedback about taking part in
     \end{itemize}\\ \hline
     \textbf{Event Flow} & 
     \begin{enumerate}
-        \item The company presses the "Internships" button, a view with the internships they created opens
-        \item The company selects the internship, a view with the internship's details opens
-        \item The company selects the student from the list of participants, a view with the student's details opens
+        \item The company presses the "Internships" button, and a view with the internships they created opens
+        \item The company selects the internship, and a view with the internship's details opens
+        \item The company selects the student from the list of participants, and a view with the student's details opens
         \item The company writes the feedback in the comments section
         \item The company presses the "Submit" button
     \end{enumerate} \\ \hline
@@ -808,7 +892,7 @@ S\subsection{Use Cases}
     \newline
     \newline
 
-    \textbf{[UC14] Student answers a comment about them}
+    \textbf{[UC16] Student answers a comment about them}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
@@ -822,18 +906,18 @@ S\subsection{Use Cases}
     \textbf{Entry Condition} & 
     \begin{itemize}
         \item The student has logged in to the S\&C platform
-        \item The student received a feedback from a company based on an internship they took part in
+        \item The student received feedback from a company based on an internship they took part in
     \end{itemize}\\ \hline
     \textbf{Event Flow} & 
     \begin{enumerate}
-        \item The student presses the "Profile" button, a view with the student's details opens
+        \item The student presses the "Profile" button, and a view with the student's details opens
         \item The student reads the feedback from the company whose internship they partook in
         \item The student writes the answer to the feedback in the comments section
         \item The student presses the "Submit" button
     \end{enumerate} \\ \hline
     \textbf{Exit Condition} & 
     \begin{itemize}
-        \item The student has successfully provided an answer to a feedback provided by a company whose internship they partook in
+        \item The student has successfully provided an answer to feedback provided by a company whose internship they partook in
         \end{itemize}\\ \hline
     \textbf{Exceptions} & 
     \begin{itemize}
@@ -844,13 +928,13 @@ S\subsection{Use Cases}
     \newline
     \newline
     
-    \textbf{[UC15] Company answers a comment about an internship if offered}
+    \textbf{[UC17] Company answers a comment about an internship if offered}
     \newline
     \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
-    \textbf{Name} & Company answers a comment about an internship if offered \\ \hline
+    \textbf{Name} & Company answers a comment about an internship it offered \\ \hline
     \textbf{Actors} & 
     \begin{itemize}
         \item Company
@@ -858,11 +942,11 @@ S\subsection{Use Cases}
     \textbf{Entry Condition} & 
     \begin{itemize}
         \item The company has logged in to the S\&C platform
-        \item The company received a feedback from a student about an internship it offered
+        \item The company received feedback from a student about an internship it offered
     \end{itemize}\\ \hline
     \textbf{Event Flow} & 
     \begin{enumerate}
-        \item The company presses the "Internships" button, a view with the internships offered by the company opens
+        \item The company presses the "Internships" button, and a view with the internships offered by the company opens
         \item The company selects an internship by pressing it, a view with the internship's details opens
         \item The company reads the feedback about the internship from a student who took part in it
         \item The company writes the answer to the feedback in the comments section
@@ -870,7 +954,7 @@ S\subsection{Use Cases}
     \end{enumerate} \\ \hline
     \textbf{Exit Condition} & 
     \begin{itemize}
-        \item The company has successfully provided an answer to a feedback about an internship it offered provided by a student who took part in it
+        \item The company has successfully provided an answer to feedback about an internship it offered provided by a student who took part in it
         \end{itemize}\\ \hline
     \textbf{Exceptions} & 
     \begin{itemize}
@@ -888,50 +972,56 @@ S\subsection{Use Cases}
 \begin{center}
 
     \textbf{[UC1] User signs up}
-
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/SignupSequenceDiagram.png}
 
     \textbf{[UC2] User logs in}
-
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/LoginSequenceDiagram.png}
 
     \textbf{[UC3] Student uploads CV}
-    \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/StudentUploadsCV.png}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentUploadsCV.png}
 
     \textbf{[UC4] Student applies to an internship he found}
-    \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/StudentAppliesToInernshipFound.png}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentAppliesToInernshipFound.png}
 
     \textbf{[UC5] Student checks an internship proposed by a company}
-    \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/StudentChecksInternshipProposedByCompany.png}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentChecksInternshipProposedByCompany.png}
 
     \textbf{[UC6] Student checks an internship proposed by the system}
-    \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/StudentChecksInternshipProposedBySystem.png}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentChecksInternshipProposedBySystem.png}
     
     \textbf{[UC7] Company creates an internship announcement}
-    \includegraphics[width=\textwidth]{RASD/images/sequence diagrams/CompanyCreatesInternshipAnnouncement.png}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/CompanyCreatesInternshipAnnouncement.png}
 
+    \textbf{[UC8] Company modifies an internship announcement}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/ModifyInternshipAnnouncementSequenceDiagram.png}
 
-    \textbf{[UC8] Company reviews a student's application}
+    \textbf{[UC9] Company deletes an internship announcement}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/DeleteInternshipAnnouncementSequenceDiagram.png}
 
+    \textbf{[UC10] Company reviews a student's application}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/ReviewStudentCVSequenceDiagram.png}
 
-    \textbf{[UC9] Company offers an internship to a student}
+    \textbf{[UC11] Company offers an internship to a student}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/CompanyOffersInternshipSequenceDiagram.png}
 
+    \textbf{[UC12] Student and company set up the interview}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/InterviewSetupSequenceDiagram.png}
 
-    \textbf{[UC10] Student and company set up the interview}
+    \textbf{[UC13] Student and company meet for the interview}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/InterviewMeetupSequenceDiagram.png}
 
+    \textbf{[UC14] Student provides feedback on an internship}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentFeedbackSequenceDiagram.png}
 
-    \textbf{[UC11] Student and company meet for the interview}
+    \textbf{[UC15] Company provides feedback on a student}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/CompanyFeedbackSequenceDiagram.png}
 
+    \textbf{[UC16] Student answers a comment about them}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentAnswerSequenceDiagram.png}
 
-    \textbf{[UC12] Student provides feedback on an internship}
+    \textbf{[UC17] Company answers a comment about an internship if offered}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/CompanyAnswerSequenceDiagram.png}
 
-
-    \textbf{[UC13] Company provides feedback on a student}
-
-
-    \textbf{[UC14] Student answers a comment about them}
-
-
-    \textbf{[UC15] Company answers a comment about an internship if offered}
-    
 \end{center}
 
 \subsection{Requirements Mapping}
@@ -941,7 +1031,7 @@ The system has to guarantee good performances in order to serve a great number o
 
 \section{Design Constraints}
 \subsection{Standards compliance}
-The S\&C platform must handle personal information such as CVs. Because of this it is designed to meet rigorous standards for data privacy and accessibility. It complies with the EU's General Data Protection Regulation (GDPR), ensuring that users' personal data is handled securely and with full consent. In particular, being based in Italy, it complies with the Personal Data Protection Code, also known as "Codice in materia di protezione dei dati personali" (Legislative Decree No. 196/2003), which implements the GDPR into Italian law.
+The S\&C platform must handle personal information such as CVs. Because of this, it is designed to meet rigorous standards for data privacy and accessibility. It complies with the EU's General Data Protection Regulation (GDPR), ensuring that users' personal data is handled securely and with full consent. In particular, being based in Italy, it complies with the Personal Data Protection Code, also known as "Codice in materia di protezione dei dati personali" (Legislative Decree No. 196/2003), which implements the GDPR into Italian law.
 Additionally, the platform follows international best practices for data handling and time formatting, ensuring compatibility with modern systems and providing an efficient global user experience
 
 \subsection{Hardware limitations}
@@ -963,7 +1053,7 @@ Reliability is a core attribute for the S\&C platform, as it is expected to be a
 The platform must achieve a high level of availability. A target of 99.9\% uptime should be set, ensuring minimal disruptions. The system architecture should be designed to handle large volumes of concurrent users, especially during peak times. By integrating load balancing and scalable infrastructure, the platform can dynamically allocate resources to meet demand and avoid bottlenecks, maintaining smooth performance even under heavy load
 
 \subsection{Security}
-The S\&C platform handles sensitive personal and educational data, so security must be a top priority. All user data, including login credentials and student's CVs, must be encrypted at rest and in transit. The platform must implement strong access controls, ensuring that only authorized users can access sensitive resources. Regular security audits should be conducted to identify and resolve vulnerabilities proactively
+The S\&C platform handles sensitive personal and educational data, so security must be a top priority. All user data, including login credentials and student CVs, must be encrypted at rest and in transit. The platform must implement strong access controls, ensuring that only authorized users can access sensitive resources. Regular security audits should be conducted to identify and resolve vulnerabilities proactively
 
 \subsection{Maintainability}
 The S\&C platform must be designed for long-term maintainability. To facilitate quick updates and smooth debugging, the platform’s codebase should be modular, well-documented, and follow industry best practices. A detailed automated testing framework must be implemented, covering critical features and ensuring that new code does not break existing functionality. Maintaining high code quality is vital for minimizing technical debt, allowing new features to be integrated efficiently and securely
