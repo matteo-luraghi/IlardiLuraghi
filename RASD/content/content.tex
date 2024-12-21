@@ -10,9 +10,8 @@ The main goals of the platform are the following:
 \subsection{Goals }
 \begin{enumerate}[label={[G\arabic{enumi}]}]
     \item Companies find suitable candidates based on the requirements of their projects and positions
-    \item Students proactively look for internships that align with their skills, experiences, and preferences.
-    \item Students find internships matching their profile
-    \item Companies find suitable student profiles
+    \item Students find internships matching their profile and experiences
+    \item Students proactively look for internships that align with their skills, experiences, and preferences
     \item Companies are facilitated in managing interviews
     \item Students provide feedback about the internships
     \item Companies provide feedback about the internships
@@ -278,7 +277,7 @@ Companies can create an account and log in to access the platform, where they ca
 The following domain assumptions are properties or conditions that the system will take for granted, they must be checked to ensure a correct platform behaviour:
 \begin{enumerate}[label={[D\arabic{enumi}]}]
     \item Users must have a reliable Internet connection
-    \item Students properly insert information about their skills and experiences in their CVs
+    \item Students provide accurate and up-to-date CVs
     \item Companies properly insert information about internships in the announcements
     \item Both parties attend the scheduled interviews on the platform
     \item Students carry out the internships offered by the companies they were chosen from
@@ -291,6 +290,66 @@ The following domain assumptions are properties or conditions that the system wi
 
 \section{External Interface Requirements }
 \subsection{User Interfaces }
+\subsubsection{Student's View }
+\begin{center}
+    \includegraphics[width=\textwidth,height=0.52\textheight]{RASD/images/ui/student/home.png}
+    \textbf{Homepage}
+    
+    \includegraphics[width=\textwidth,height=0.48\textheight]{RASD/images/ui/student/company-proposals.png}
+    \textbf{Company Proposals}
+    
+    \includegraphics[width=\textwidth,height=0.47\textheight]{RASD/images/ui/student/suggestions.png}
+    \textbf{Suggestions}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/student/applications.png}
+    \textbf{Applications}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/student/internships.png}
+    \textbf{Internships}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/student/internship-details-before.png}
+    \textbf{Available internship details}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/student/internship-details-after.png}
+    \textbf{Past internship details}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/student/interviews.png}
+    \textbf{Interviews}
+    
+    %\includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/student/profile.png}
+    %\textbf{Profile}
+\end{center}
+
+\subsubsection{Company's View}
+\begin{center}
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/company/home.png}
+    \textbf{Homepage}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/company/internships.png}
+    \textbf{Internships}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/company/new-internship.png}
+    \textbf{New internship form}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/company/internship-details.png}
+    \textbf{Internship details}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/company/internship-applications.png}
+    \textbf{Internship applications}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/company/internship-suggestions.png}
+    \textbf{Internship suggestions}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/company/interviews.png}
+    \textbf{Interviews}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/company/student-info.png}
+    \textbf{Student profile}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{RASD/images/ui/company/profile.png}
+    \textbf{Profile}
+\end{center}
+
 \subsection{Hardware Interfaces }
 S\&C is a web app, consequently, it requires a device with a web browser installed to be accessible.
 
@@ -378,9 +437,7 @@ The user uses an internet connection to access the platform. The platform must b
 \subsection{Use Cases}
 
 \begin{center}
-    \textbf{[UC1] User signs up}
-    \newline
-    \newline
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -411,10 +468,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC1] User signs up}
+    \newline
+    \newline
+
     
-    \textbf{[UC2] User logs in}
-    \newline
-    \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -446,10 +504,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC2] User logs in}
+    \newline
+    \newline
+
     
-    \textbf{[UC3] Student uploads CV}
-    \newline
-    \newline
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -479,11 +538,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
-    
-    
-    \textbf{[UC4] Student applies to an internship he found}
+    \textbf{[UC3] Student uploads CV}
     \newline
     \newline
+
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -511,11 +570,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
-    
-    
-    \textbf{[UC5] Student checks an internship proposed by a company}
+    \textbf{[UC4] Student applies to an internship he found}
     \newline
     \newline
+    
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -544,11 +603,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
-    
-    
-    \textbf{[UC6] Student checks an internship proposed by the system}
+    \textbf{[UC5] Student checks an internship proposed by a company}
     \newline
     \newline
+    
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -575,11 +634,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
-    
-    
-    \textbf{[UC7] Company creates an internship announcement}
+    \textbf{[UC6] Student checks an internship proposed by the system}
     \newline
     \newline
+    
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -610,10 +669,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC7] Company creates an internship announcement}
+    \newline
+    \newline
 
-        \textbf{[UC8] Company modifies an internship announcement}
-    \newline
-    \newline
+
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -645,10 +705,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC8] Company modifies an internship announcement}
+    \newline
+    \newline
 
-    \textbf{[UC9] Company deletes an internship announcement}
-    \newline
-    \newline
+
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -677,10 +738,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC9] Company deletes an internship announcement}
+    \newline
+    \newline
     
-    \textbf{[UC10] Company reviews a student's application}
-    \newline
-    \newline
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -710,11 +772,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
-    
-    
-    \textbf{[UC11] Company offers an internship to a student}
+    \textbf{[UC10] Company reviews a student's application}
     \newline
     \newline
+    
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -743,11 +805,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
-    
-    
-    \textbf{[UC12] Student and company set up the interview}
+    \textbf{[UC11] Company offers an internship to a student}
     \newline
     \newline
+    
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -782,11 +844,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
-    
-    
-    \textbf{[UC13] Student and company meet for the interview}
+    \textbf{[UC12] Student and company set up the interview}
     \newline
     \newline
+    
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -818,10 +880,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC13] Student and company meet for the interview}
+    \newline
+    \newline
     
-    \textbf{[UC14] Student provides feedback on an internship}
-    \newline
-    \newline
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -854,10 +917,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC14] Student provides feedback on an internship}
+    \newline
+    \newline
     
-    \textbf{[UC15] Company provides feedback on a student}
-    \newline
-    \newline
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -891,10 +955,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC15] Company provides feedback on a student}
+    \newline
+    \newline
 
-    \textbf{[UC16] Student answers a comment about them}
-    \newline
-    \newline
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -927,10 +992,11 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC16] Student answers a comment about them}
+    \newline
+    \newline
     
-    \textbf{[UC17] Company answers a comment about an internship if offered}
-    \newline
-    \newline
+    
     \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
     \textbf{Attribute} & \textbf{Description} \\ \hline
@@ -964,6 +1030,9 @@ The user uses an internet connection to access the platform. The platform must b
     \end{tabular}
     \newline
     \newline
+    \textbf{[UC17] Company answers a comment about an internship if offered}
+    \newline
+    \newline
     
 \end{center}
 
@@ -971,67 +1040,182 @@ The user uses an internet connection to access the platform. The platform must b
 
 \begin{center}
 
-    \textbf{[UC1] User signs up}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/SignupSequenceDiagram.png}
-
-    \textbf{[UC2] User logs in}
-    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/LoginSequenceDiagram.png}
-
-    \textbf{[UC3] Student uploads CV}
-    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentUploadsCV.png}
-
-    \textbf{[UC4] Student applies to an internship he found}
-    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentAppliesToInernshipFound.png}
-
-    \textbf{[UC5] Student checks an internship proposed by a company}
-    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentChecksInternshipProposedByCompany.png}
-
-    \textbf{[UC6] Student checks an internship proposed by the system}
-    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentChecksInternshipProposedBySystem.png}
+    \textbf{[UC1] User signs up}
     
-    \textbf{[UC7] Company creates an internship announcement}
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/LoginSequenceDiagram.png}
+    \textbf{[UC2] User logs in}
+    
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentUploadsCV.png}
+    \textbf{[UC3] Student uploads CV}
+    
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentAppliesToInernshipFound.png}
+    \textbf{[UC4] Student applies to an internship he found}
+
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentChecksInternshipProposedByCompany.png}
+    \textbf{[UC5] Student checks an internship proposed by a company}
+
+    \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentChecksInternshipProposedBySystem.png}
+    \textbf{[UC6] Student checks an internship proposed by the system}
+
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/CompanyCreatesInternshipAnnouncement.png}
+    \textbf{[UC7] Company creates an internship announcement}
 
-    \textbf{[UC8] Company modifies an internship announcement}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/ModifyInternshipAnnouncementSequenceDiagram.png}
+    \textbf{[UC8] Company modifies an internship announcement}
 
-    \textbf{[UC9] Company deletes an internship announcement}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/DeleteInternshipAnnouncementSequenceDiagram.png}
+    \textbf{[UC9] Company deletes an internship announcement}
 
-    \textbf{[UC10] Company reviews a student's application}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/ReviewStudentCVSequenceDiagram.png}
+    \textbf{[UC10] Company reviews a student's application}
 
-    \textbf{[UC11] Company offers an internship to a student}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/CompanyOffersInternshipSequenceDiagram.png}
+    \textbf{[UC11] Company offers an internship to a student}
 
-    \textbf{[UC12] Student and company set up the interview}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/InterviewSetupSequenceDiagram.png}
+    \textbf{[UC12] Student and company set up the interview}
 
-    \textbf{[UC13] Student and company meet for the interview}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/InterviewMeetupSequenceDiagram.png}
+    \textbf{[UC13] Student and company meet for the interview}
 
-    \textbf{[UC14] Student provides feedback on an internship}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentFeedbackSequenceDiagram.png}
+    \textbf{[UC14] Student provides feedback on an internship}
 
-    \textbf{[UC15] Company provides feedback on a student}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/CompanyFeedbackSequenceDiagram.png}
+    \textbf{[UC15] Company provides feedback on a student}
 
-    \textbf{[UC16] Student answers a comment about them}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/StudentAnswerSequenceDiagram.png}
+    \textbf{[UC16] Student answers a comment about them}
 
-    \textbf{[UC17] Company answers a comment about an internship if offered}
     \includegraphics[width=\textwidth]{RASD/images/sequenceDiagrams/CompanyAnswerSequenceDiagram.png}
+    \textbf{[UC17] Company answers a comment about an internship if offered}
 
 \end{center}
 
 \subsection{Requirements Mapping}
 
+\renewcommand{\arraystretch}{1.3} % Adjust row height spacing
+
+\begin{longtable}{|p{4cm}|p{5.5cm}|p{5.5cm}|} % Narrower fixed-width columns
+    \hline
+    \textbf{Goal ID} & \textbf{Requirement IDs} & \textbf{Domain Assumptions} \\ 
+    \hline
+    \endfirsthead
+    \multicolumn{3}{c}{{\textit{Continued from previous page}}} \\ 
+    \endhead
+    \hline
+    \multicolumn{3}{r}{{\textit{Continued on next page}}} \\
+    \endfoot
+    \hline
+    %\endlastfoot
+    % ----------- First Goal ----------
+    \textbf{[G1] \newline Companies find suitable candidates based on the requirements of their projects and positions } & 
+    \begin{itemize}[label=$\bullet$]
+        \item [R1] The System shall allow new users to sign up by providing their personal information
+        \item [R2] The System must allow registered users to sign in by providing a username and a password
+        \item [R3] The System shall allow Students to upload a new CV
+        \item [R4] The System shall allow Companies to create internship announcement posts containing all the needed
+        details
+        \item R5 e 6???
+        \item [R7] The System shall allow Students to view the details of any internship
+        \item [R8] The System shall allow Students to browse the suggested internships
+        \item [R9] The System shall allow Students to apply for an internship
+        \item [R10] The System shall allow Students to accept an internship proposal from a Company
+        \item [R13] The System shall suggest to Companies Students who match their requirements for an internship proposal
+        \item [R14] The System shall use the Recommendation Engine to analyze student profiles to match them with
+        internships proposed by companies
+        \item Controllare R12, 13, 14, 15 non so se siano in ordine giusto
+        \item [R16] The system shall allow companies to review the suggested students to select the ones they wish to contact for an internship proposal
+        \item [R17] The system shall send a notification to Students selected by Companies for an internship ??????? Ma questo succede?
+    \end{itemize}
+    &
+    \begin{itemize}[label=$\bullet$]
+        \item [D1] Users must have a reliable Internet connection
+        \item [D2] Students provide accurate and up-to-date CVs
+        \item [D3] Companies properly insert information about internships in the announcements
+    \end{itemize} \\ 
+    \hline
+    % ----------- Second Goal ----------
+    
+    \textbf{[G2] \newline Students find internships matching their profile and experiences} & 
+    \begin{itemize}[label=$\bullet$]
+        \item [R1] The System shall allow new users to sign up by providing their personal information
+        \item [R2] The System must allow registered users to sign in by providing a username and a password
+    \end{itemize}
+    &
+    \begin{itemize}[label=$\bullet$]
+        \item [D1] Users must have a reliable Internet connection
+        \item [D2] Students provide accurate and up-to-date CVs
+        \item [D3] Companies properly insert information about internships in the announcements
+    \end{itemize} \\ 
+    \hline
+    % ----------- Third Goal ----------
+        \textbf{[G3] \newline Students proactively look for internships that align with their skills, experiences, and preferences} & 
+    \begin{itemize}[label=$\bullet$]
+        \item [R1] The System shall allow new users to sign up by providing their personal information
+        \item [R2] The System must allow registered users to sign in by providing a username and a password
+        \item [R4] The System shall allow Companies to create internship announcement posts containing all the needed details
+        \item [R5] The System shall allow Companies to modify existing internship announcement posts updating the details
+        \item [R6] The System shall allow Companies to delete existing internship announcement posts
+        \item [R7] The System shall allow Students to view the details of any internship
+        \item [R8] The System shall allow Students to browse the suggested internships
+        \item [R9] The System shall allow Students to apply for an internship
+    \end{itemize}
+    &
+    \begin{itemize}[label=$\bullet$]
+        \item [D1] Users must have a reliable Internet connection
+        \item [D2] Students provide accurate and up-to-date CVs
+        \item [D3] Companies properly insert information about internships in the announcements
+    \end{itemize} \\ 
+    \hline
+
+    % ----------- Fourth Goal ----------
+        \textbf{[G4] \newline Companies are facilitated in managing interviews} & 
+    \begin{itemize}[label=$\bullet$]
+        \item [R4] The system shall facilitate interview scheduling between students and companies.
+        \item [R5] The system shall allow companies to provide structured feedback about students.
+        \item [R9] The system shall allow students to provide structured feedback about internships.
+    \end{itemize}
+    &
+    \begin{itemize}[label=$\bullet$]
+        \item [D5] Both parties respect scheduled interviews and deadlines.
+    \end{itemize} \\ 
+    \hline
+        % ----------- Fifth Goal ----------
+        \textbf{[G5] \newline Students provide feedback about the internships} & 
+    \begin{itemize}[label=$\bullet$]
+        \item [R4] The system shall facilitate interview scheduling between students and companies.
+        \item [R5] The system shall allow companies to provide structured feedback about students.
+        \item [R9] The system shall allow students to provide structured feedback about internships.
+    \end{itemize}
+    &
+    \begin{itemize}[label=$\bullet$]
+        \item [D5] Both parties respect scheduled interviews and deadlines.
+    \end{itemize} \\ 
+    \hline
+        % ----------- Sixth Goal ----------
+        \textbf{[G6] \newline Companies provide feedback about the internships} & 
+    \begin{itemize}[label=$\bullet$]
+        \item [R4] The system shall facilitate interview scheduling between students and companies.
+        \item [R5] The system shall allow companies to provide structured feedback about students.
+        \item [R9] The system shall allow students to provide structured feedback about internships.
+    \end{itemize}
+    &
+    \begin{itemize}[label=$\bullet$]
+        \item [D5] Both parties respect scheduled interviews and deadlines.
+    \end{itemize} \\ 
+    \hline
+    
+\end{longtable}
+
+
 \section{Performance Requirements}
-The system has to guarantee good performances in order to serve a great number of users (companies and students). To achieve this goal the user experience must be as good as possible in order to fulfill this requirement the response time must be low no more than a second. If the user’s internet connection is slow the response time can increase significantly
+The system has to guarantee good performance to serve many users (companies and students). To achieve this goal the user experience must be as good as possible to fulfill this requirement the response time must be low no more than a second. If the user’s internet connection is slow the response time can increase significantly
 
 \section{Design Constraints}
 \subsection{Standards compliance}
-The S\&C platform must handle personal information such as CVs. Because of this, it is designed to meet rigorous standards for data privacy and accessibility. It complies with the EU's General Data Protection Regulation (GDPR), ensuring that users' personal data is handled securely and with full consent. In particular, being based in Italy, it complies with the Personal Data Protection Code, also known as "Codice in materia di protezione dei dati personali" (Legislative Decree No. 196/2003), which implements the GDPR into Italian law.
+The S\&C platform must handle personal information such as CVs. Because of this, it is designed to meet rigorous standards for data privacy and accessibility. It complies with the EU's General Data Protection Regulation (GDPR), ensuring users' data is handled securely and with full consent. In particular, being based in Italy, it complies with the Personal Data Protection Code, also known as "Codice in materia di protezione dei dati personali" (Legislative Decree No. 196/2003), which implements the GDPR into Italian law.
 Additionally, the platform follows international best practices for data handling and time formatting, ensuring compatibility with modern systems and providing an efficient global user experience
 
 \subsection{Hardware limitations}
@@ -1040,7 +1224,7 @@ To ensure optimal performance, users must meet certain hardware specifications f
     \item Network Connectivity: a reliable internet connection is required for seamless access to the platform. The device should be compatible with at least one of the following communication standards: 3G, 4G, 5G, Wi-Fi (IEEE 802.11), or Ethernet (IEEE 802.3)
     \item Device Capabilities: the platform requires a device with at least a quad-core processor (e.g., Intel i5 or equivalent), a minimum of 8 GB RAM, and a screen resolution of at least Full HD (1920x1080). Devices should also support modern web browsers and ensure adequate processing power
 \end{itemize}
-In addition to this a webcam is strongly recommended in order to conduct the interviews on the third party application in a professional and complete manner
+In addition to this a webcam is strongly recommended to conduct the interviews on the third party application in a professional and complete manner
 
 \subsection{Any other constraint}
 The user interface (UI) of the S\&C platform must be intuitive and easy to navigate, given that it serves both students and companies with varying technical proficiency. The design must prioritize accessibility, with clear visual cues and well-structured content. The platform must adapt to different devices, ensuring consistent performance on desktops, laptops, and mobile devices.
