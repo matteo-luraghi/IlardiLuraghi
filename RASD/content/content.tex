@@ -3,8 +3,8 @@
 
 \section{Purpose }
 As the demand for skilled professionals continues to grow, connecting university students with real-world opportunities has become increasingly important. Traditionally, students search for internships through fragmented processes, often relying on personal networks or generalized job boards, which may not adequately match their skills and aspirations with the needs of companies. This inefficiency results in missed opportunities for both students and employers.\newline
-Students\&Companies (S\&C) is a platform designed to address this challenge by streamlining the internship matchmaking process. It bridges the gap between students seeking internships and companies offering them, leveraging modern technologies to create tailored recommendations. S\&C allows students to showcase their experiences and skills through detailed CVs while enabling companies to describe their projects and requirements in depth. The platform not only simplifies the search process but also offers advanced mechanisms like statistical analysis and keyword-based recommendations to improve matching accuracy.\newline
-Additionally, S\&C supports the selection process by facilitating interviews and feedback collection, while also providing tools for universities to monitor and intervene when necessary. With features for proactive searching, personalized suggestions, and tracking internship progress, the platform aims to create a seamless and transparent experience for all parties involved.
+Students\&Companies (S\&C) is a platform designed to address this challenge by streamlining the internship matchmaking process. It bridges the gap between students seeking internships and companies offering them. S\&C allows students to showcase their experiences and skills through CVs while enabling companies to describe their projects and requirements in depth.\newline
+Additionally, S\&C supports the selection process by facilitating interviews and feedback collection. With features for proactive searching and personalized suggestions, the platform aims to create a seamless and transparent experience for all parties involved.
 The main goals of the platform are the following:
 
 \subsection{Goals }
@@ -13,7 +13,7 @@ The main goals of the platform are the following:
     \item Students find internships matching their profile and experiences
     \item Students proactively look for internships that align with their skills, experiences, and preferences
     \item Companies are facilitated in managing interviews
-    \item Companies manage ongoing internships
+    \item Companies manage student admissions to internships
     \item Students provide feedback about the internships
     \item Companies provide feedback about the internships
 \end{enumerate}
@@ -21,8 +21,8 @@ The main goals of the platform are the following:
 \section{Scope }
 In this section, we will define S\&C platform domain.\newline
 There are two primary users of the system: \textbf{Students} and \textbf{Companies}.\newline
-Students are the individuals seeking internship opportunities. They can create and manage their profiles by uploading their CVs. The platform will notify students of relevant internship opportunities based on their profile information and allow them to apply directly. In addition, students can track the status of their applications and receive feedback from companies. The system also provides a recommendation engine to suggest internships tailored to students' qualifications and preferences. Students can actively participate by proactively searching for internships or passively by receiving notifications when suitable opportunities arise.\newline
-Companies are the organizations offering internship opportunities. They will be able to post internship vacancies, specifying the required skills, tasks, technologies, and terms. Companies can manage and edit their internship postings, as well as review and evaluate student applications. The system will help companies identify students who best match their internship requirements through a recommendation system. Companies will also be able to schedule interviews, manage ongoing internships and check and respond to feedback provided by students.
+Students are the individuals seeking internship opportunities. They can create and manage their profiles by uploading their CVs. The platform will notify students of relevant internship opportunities based on their profile information and allow them to apply directly. In addition, students can track the status of their applications and receive feedback from companies. The system also provides a Recommendation Engine to suggest internships tailored to students' qualifications and preferences. Students can actively participate by proactively searching for internships or passively by checking suggested opportunities.\newline
+Companies are the organizations offering internship opportunities. They will be able to post internship vacancies, specifying the required skills, tasks, technologies, and terms. Companies can manage and edit their internship postings, as well as review and evaluate student applications. The system will help companies identify students who best match their internship requirements through a recommendation system. Companies will also be able to schedule interviews, manage the selection process, and check and respond to feedback provided by students.
 
 \subsection{World Phenomena }
 \begin{enumerate}[label={[WP\arabic{enumi}]}]
@@ -44,16 +44,17 @@ Companies are the organizations offering internship opportunities. They will be 
     \item Students participate in interviews with the companies
     \item Companies conduct interviews with the students
     \item Students provide feedback about internships
-    \item Companies create internships announces
+    \item Companies create internships announcements
     \item Companies review students' profiles
     \item Companies reach out to students with matching CVs
     \item Companies review students' applications
+    \item Companies accept a student to an internship
     \item Companies provide feedback about students
 \end{enumerate}
 
 \textbf{Machine controlled}
 \begin{enumerate}[label={[SP\arabic{enumi}]}]
-    \setcounter{enumi}{12} % need to update if the number of world controlled changes
+    \setcounter{enumi}{13} % need to update if the number of world controlled changes
     \item The system notifies students about internships matching their profiles
     \item The system notifies to companies about suitable student profiles
     \item The system generates internship recommendations for students
@@ -61,7 +62,6 @@ Companies are the organizations offering internship opportunities. They will be 
     \item The system prompts students to provide feedback
     \item The system prompts companies to provide feedback
     \item The system tracks the status of matchmaking processes
-    \item The system tracks the status of ongoing internships
 \end{enumerate}
 
 \section{Definitions, Acronyms, Abbreviations }
@@ -74,8 +74,6 @@ Companies are the organizations offering internship opportunities. They will be 
 \subsection{Acronyms }
 \begin{itemize}
     \item S\&C: Students\&Companies
-    \item UI: User Interface
-    \item UML: Unified Modeling Language
 \end{itemize}
 
 \subsection{Abbreviations }
@@ -88,6 +86,7 @@ Companies are the organizations offering internship opportunities. They will be 
 \end{itemize}
 
 \section{Revision history }
+\input{base/history}
 
 \section{Reference Documents }
 The document is based on the following materials:
@@ -102,10 +101,8 @@ The document is based on the following materials:
     \item \textbf{Overall Description}: it is a high-level description of how the system works with a detailed explanation of the phenomena that involve the world, the machine, or
     both. It also contains the description of the domain with its assumptions
     \item \textbf{Specific Requirements}: this section provides a detailed analysis of the requirements needed to achieve the goals. Moreover, it contains additional information useful for developers (i.e. constraints about HW and SW)
-    \item \textbf{Formal Analysis Using Alloy}: it’s a formal description of the world phenomena by the means of Alloy
-    \item \textbf{Effort Spent}: it shows the time spent to realize this document organized by section
-    \item \textbf{References}: it contains the references to any documents and software used to write this paper
-\end{enumerate}
+    \item \textbf{Formal Analysis Using Alloy}: it’s a formal description of the world controlled shared phenomena by the means of Alloy
+    \item \textbf{Effort Spent}: it shows the time spent to realize this document organized by section\end{enumerate}
 
 \newpage
 
@@ -115,7 +112,7 @@ The document is based on the following materials:
 \section{Product perspective }
 \subsection{Scenarios }
 \textbf{User signs up} \newline
-User A opens the landing page of the S\&C platform and clicks on the "Sign up" button. Two different registration forms appear to the user, one is for companies, the other for students. User A selects and fills in the form corresponding to their role. When User A is done the form can be submitted, and if everything checks out, the system creates the User's account and redirects them to the homepage.
+User A opens the landing page of the S\&C platform and clicks on the "Sign up" button. Two different registration forms appear to the user, one for companies and the other for students. User A selects and fills in the form corresponding to their role. When User A is done the form can be submitted, and if everything checks out, the system creates the User's account and redirects them to the homepage.
 \newline
 \newline
 \textbf{User logs in} \newline
@@ -128,13 +125,12 @@ After the file has been uploaded, they click the "Upload CV" button to submit th
 \newline
 \newline
 \textbf{Student actively searches for an internship, finds it and applies}\newline
-Student D wants to look for available internships that match their skills and experiences, so they
-log into the S\&C platform. On the homepage they are greeted with the list of all available internships, they browse them and then select the one which suits them the most.
+Student D wants to look for available internships that match their skills and experiences, so they log into the S\&C platform. On the homepage they are greeted with the list of all available internships, they browse them and then select the one which suits them the most.
 The system shows Student D the page containing the internship's details, they click on the "Apply" button to enrol. Consequently, the system prompts a confirmation message and redirects Student D to the homepage.
 \newline
 \newline
 \textbf{Student applies to an internship proposed by a company }\newline
-Student E receives a notification about an internship from a specific Company F who reached out to them, they log into the S\&C's platform. From the homepage, they navigate to the "Company proposals" section and select the internships they want to check out. The system shows Student E the page containing the internship's details, and they click on the "Apply" button to enrol. Consequently, the system prompts a confirmation message and redirects Student E to the homepage.
+Student E logs into the S\&C's platform and from the homepage, they navigate to the "Company proposals" section and select the internships they want to check out, proposed by Company F to Student E. The system shows Student E the page containing the internship's details, and they click on the "Apply" button to enrol. Consequently, the system prompts a confirmation message and redirects Student E to the homepage.
 \newline
 \newline
 \textbf{Student applies to an internship recommended by the system }\newline
@@ -143,7 +139,7 @@ The system shows Student G the page containing the internship's details, they cl
 \newline
 \newline
 \textbf{Company creates an internship announcement}\newline
-Company H wants to create an announcement for a newly available internship, so it logs into the S\&C platform. From the homepage, it navigates to the "Internships" section, where it can click the "New" button and fill the form with all the necessary information. After completing the form, the company can click the "Submit" button to create the internship announcement.
+Company H wants to create an announcement for a newly available internship, so it logs into the S\&C platform. From the homepage, it navigates to the "Internships" section, where it can click the "New" button and fill the form with all the necessary information. After completing the form, Company H clicks the "Submit" button to create the internship announcement.
 \newline
 \newline
 \textbf{Company modifies an existing internship announcement}\newline
@@ -161,12 +157,12 @@ Within the internship's page, Company K accesses the "Applications" section, whe
 \newline
 \textbf{Company reaches out to student offering an internship}\newline
 Company M logs into the S\&C platform to identify a suitable candidate for one of its internships. From the homepage, Company M navigates to the "Internships" section and selects a specific internship.
-Within the internship's page, Company M accesses the "Suggestions" section, where the system provides a list of recommended students. After reviewing the suggestions, Company M selects the most suitable student and clicks the "Notify" button to send Student N a notification encouraging them to apply for the internship. If they accept the offer, they are ready to schedule an interview, without the need from Company M to evaluate Student N's CV again.
+Within the internship's page, Company M accesses the "Suggestions" section, where the system provides a list of recommended students. After reviewing the suggestions, Company M selects the most suitable student and clicks the "Notify" button to let Student N know that Company M proposed an internship to them. If Student N accepts the offer, they are ready to schedule an interview, without the need from Company M to evaluate Student N's CV again.
 \newline
 \newline
 \textbf{Student and company set up the interview}\newline
-After approving Student O's application, Company P navigates to the "Interviews" section of the S\&C platform. Here, Company P browses the students who were accepted for an interview, and finds Student O's entry where it's possible to select and propose three possible dates and times for the interview through a calendar pop-up.
-Student O, upon logging into the platform, accesses the "Applications--" section to view the proposed dates. Student O can either:
+After approving Student O's application, Company P navigates to the "Interviews" section of the S\&C platform. Here, Company P browses the students who were accepted for an interview, and finds Student O's entry where it is possible to select and propose three possible dates and times for the interview through a calendar pop-up.
+Student O, upon logging into the platform, accesses the "Applications" section to view the proposed dates. Student O can either:
 accept one of the suggested dates by clicking on it, confirming the choice; 
 request a new set of dates by clicking the "Reschedule" button, prompting Company N to provide alternative options.
 \newline
@@ -190,22 +186,24 @@ Student W logs into the S\&C platform to provide feedback about an internship wi
 \textbf{Company provides feedback on a student}\newline
 Company Y logs into the S\&C platform to provide feedback about Student Z. From the homepage, Company Y navigates to the "Internships" section and selects a specific internship. There's a comment section where Company Y can provide feedback or respond to comments from Student Z about the internship with Company Y. After typing their comment, Company Y clicks the "Submit" button, and the comment is displayed in the section.
 
-\subsection{Domain Class Diagrams }
+\subsection{Domain Class Diagram }
 \includegraphics[width=\textwidth]{RASD/images/otherDiagrams/DomainClassDiagram.png}
 \textbf{Domain Class Diagram Description }\newline
 The Student class is associated with a single CV, which is the document used to apply for an internship. A Student submits their application in response to an Internship Announcement. Each application has a Status that is initially set to PENDING. After the company reviews the application, the Status transitions to either APPROVED or REJECTED.
-For applications marked as APPROVED, the system facilitates scheduling an interview between the student and the company through a third-party meeting application.4
-After the interview, companies decide which students to admit to the internship.
+For applications marked as APPROVED, the system facilitates scheduling an interview between the student and the company through a third-party meeting application.
+After the interview, companies decide which students to admit to the internship, that become participants of the internship.
 Companies can offer multiple Internships, which are advertised through Internship Announcements. These announcements are the interface where students submit their applications.
 The system incorporates a Recommendation Engine that provides two types of recommendations:
 \begin{enumerate}
-    \item Internship Recommendations: A list of internship opportunities proposed to students based on their profiles and preferences
-    \item Student Recommendations: A selection of student profiles proposed to companies based on their requirements and preferences
+    \item Internship Recommendations: a list of internship opportunities proposed to students based on their profiles and preferences
+    \item Student Recommendations: a selection of student profiles proposed to companies based on their requirements and preferences
 \end{enumerate}
 The system also supports Feedback Mechanisms to enhance transparency and improve future recommendations:
 \begin{enumerate}
-    \item Student Feedback: After completing an internship, students can provide feedback about the internship experience and the company
-    \item Company Feedback: Companies can provide feedback on the performance and professionalism of students who have interned with them
+    \item Student Feedback: after completing an internship, students can provide feedback about the internship experience and the company
+    \item Company Feedback: companies can provide feedback on the performance and professionalism of students who have interned with them
+    \item Student Comment: students can respond to feedback provided by companies about them
+    \item Company Comment: companies can respond to students' feedback regarding their internships
 \end{enumerate}
 
 \subsection{State Diagrams }
@@ -213,14 +211,16 @@ The system also supports Feedback Mechanisms to enhance transparency and improve
 \begin{center}
     \includegraphics[width=\textwidth]{RASD/images/stateDiagrams/ApplicationStateDiagram.png}
 \end{center}
-The Application exclusively refers to the process of preliminary admission to the interview. Because of this, applications are requests for an interview from students who either received a recommendation for a company from the system or actively searched for an internship. Students who got selected directly from a company thanks to a recommendation from the system to the company are automatically admitted for an interview. 
-When an Application is submitted, its status is Pending. The company proceeds to evaluate the candidates based on their CVs, and the Application can now be rejected or accepted. If it is accepted, the company initiates the process to schedule an interview with the student who applied.
+The Application exclusively refers to the process of preliminary admission to the interview. Because of this, applications are requests for an interview from students who either received a recommendation for a company from the system or actively searched for an internship. Students who got selected directly from a company thanks to a recommendation from the system to the company are automatically admitted for an interview since the company already reviewed the necessary information.
+When an Application is submitted, its status is Pending. The company proceeds to evaluate the candidates based on their CVs, and the Application can now be rejected or accepted. If accepted, the company initiates the process to schedule an interview with the student who applied.
+\newline
 
 \textbf{Interview}
 \begin{center}
     \includegraphics[width=\textwidth]{RASD/images/stateDiagrams/InterviewStateDiagram.png}
 \end{center}
-An Interview is Proposed by the company to a student whose Application was accepted. In particular, the company proposes three possible dates for the interview. The student can either accept one of the suggested dates or refuse them, in which case the company will provide new dates. In the meantime, the status is Waiting for new dates. When the student accepts a date, the Interview is Scheduled, and on the given date it is Undergoing on the platform. 
+An Interview is Proposed by the company to a student whose Application was accepted. The company proposes three possible dates for the interview. The student can either accept one of the suggested dates or refuse them, in which case the company will provide new dates. In the meantime, the status is Waiting for new dates. When the student accepts a date, the Interview is Scheduled, and on the given date it is Undergoing. 
+\newline \newline
 
 \textbf{Feedback Submission}
 \begin{center}
@@ -250,11 +250,11 @@ The system provides recommendations of students to companies by matching the stu
 \newline
 \newline
 \textbf{Company recommendation}\newline
-The system recommends companies' internships to students by matching the students' CVs with the requirements of available internships. Using the information provided in the students' profiles, such as skills and experiences, the system identifies internships that align with their qualifications.
+The system recommends companies' internships to students by matching the students' CVs with the requirements of available internships. 
 \newline
 \newline
 \textbf{Company reach out}\newline
-The system allows companies to review students' profiles and CVs to identify potential candidates for their internships. When a student's profile matches the requirements of a specific internship, the company can send a notification to the student through the platform, inviting them to apply for the internship.
+The system allows companies to review students' profiles and CVs recommended by the system to identify potential candidates for their internships. When a student's profile matches the requirements of a specific internship, the company can inform the student about an opportunity, inviting them to apply for the internship.
 \newline
 \newline
 \textbf{Interview hosting}\newline
@@ -266,21 +266,22 @@ The system allows companies to select students that have partook in an interview
 \newline
 \newline
 \textbf{Student feedback submission}\newline
-The system collects feedback from students about their internship experiences. After completing an internship, students are asked to provide their opinions and evaluations through a dedicated feedback form on the platform. If the company wishes, it can leave a comment regarding the student's feedback.
+The system collects feedback from students about their internship experiences. After completing an internship, students are asked to provide their opinions and evaluations through the platform. If the company wishes to, it can leave a comment regarding the student's feedback.
 \newline
 \newline
 \textbf{Company feedback submission}\newline
-The system collects feedback from companies regarding the performance of students participating in their internships. After an internship concludes, companies are asked to submit evaluations through the platform, detailing the students' skills, professionalism, and overall contributions. If the student wishes to, he can leave a public comment or answer on the company's feedback.
+The system collects feedback from companies regarding the performance of students participating in their internships. After an internship concludes, companies are asked to submit evaluations through the platform, detailing the students' skills, professionalism, and overall contributions. If the student wishes to, they can leave a public comment or answer the company's feedback.
 \newline
 \newline
 
 \section{User characteristics }
 Two types of users interact with the platform: Students and Companies
 \subsection{Student }
-Students can create an account and log in to access the platform, where they can actively search for and apply to internship opportunities or wait to receive personalized notifications for internships that align with their profile. They can also coordinate with companies to schedule interviews through the platform. After completing an internship, students have the opportunity to provide feedback about their experience.
+Students can create an account and log in to access the platform, where they can actively search for and apply to internship opportunities or wait to receive personalized suggestions for internships that align with their profile. They can also coordinate with companies to schedule interviews through the platform. After completing an internship, students have the opportunity to provide feedback about their experience.
 \subsection{Company }
-Companies can create an account and log in to access the platform, where they can post detailed internship announcements for students to view and apply to. They can review student applications, approve or reject them as needed, and notify students regarding internships that match their profiles. Companies can also coordinate with students to schedule interviews, admit students to an internship after an interview and provide feedback on the student’s performance after the completion of an internship.
+Companies can create an account and log in to access the platform, where they can post detailed internship announcements for students to view and apply to. They can review student applications, approve or reject them as needed, and inform students about internships that match their profiles. Companies can also coordinate with students to schedule interviews, admit students to an internship after an interview and provide feedback on the student’s performance after the completion of an internship.
 
+\newpage
 \section{Assumptions, dependencies and constraints }
 \subsection{Domain Assumptions }
 The following domain assumptions are properties or conditions that the system will take for granted, they must be checked to ensure a correct platform behaviour:
@@ -376,12 +377,12 @@ The user uses an internet connection to access the platform. The platform must b
 \textbf{Sign up and log in}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
     \item The System shall allow new users to sign up by providing their personal information
-    \item The System shall allow registered users to sign in by providing a username and a password
+    \item The System shall allow registered users to log in by providing a username and a password
 \end{enumerate}
 \textbf{Student CV management}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
     \setcounter{enumi}{2}
-    \item The System shall allow Students to upload a new CV
+    \item The System shall allow Students to upload a CV
 \end{enumerate}
 \textbf{Internship announcement posting}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
@@ -399,27 +400,22 @@ The user uses an internet connection to access the platform. The platform must b
     \item The System shall allow Students to accept an internship proposal from a Company
     \item The System shall allow Students to check the status of the applications they've submitted
 \end{enumerate}
-\textbf{Student recommendation}
+\textbf{Student and Company recommendation}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
     \setcounter{enumi}{11}
     \item The System shall use the Recommendation Engine to analyze student profiles to match them with internships proposed by companies
     \item The System shall suggest to Companies Students who match their requirements for an internship proposal
-\end{enumerate}
-\textbf{Company recommendation}
-\begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{13}
-    \item The System shall use the Recommendation Engine to analyze student profiles to match them with internships proposed by companies
     \item The System shall suggest to Students Companies that offer internships aligned with their skills and experiences
 \end{enumerate}
 \textbf{Company reach out}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{15}
-    \item The system shall allow companies to review the suggested students to select the ones they wish to contact for an internship proposal
+    \setcounter{enumi}{14}
+    \item The system shall allow Companies to review the suggested students to select the ones they wish to contact for an internship proposal
     \item The system shall notify Students selected by Companies for an internship
 \end{enumerate}
 \textbf{Interview hosting}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{17}
+    \setcounter{enumi}{16}
     \item The System shall allow Companies to propose three possible dates to Students for an interview
     \item The System shall allow Students to accept one of the proposed dates for an interview
     \item The System shall allow Students to ask Companies to provide new possible dates for an interview
@@ -427,26 +423,26 @@ The user uses an internet connection to access the platform. The platform must b
 \end{enumerate}
 \textbf{Student admission}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{21}
+    \setcounter{enumi}{20}
     \item The System shall allow companies to select students to admit to internships they interviewed for
     \item The System shall allow students to check for their admission to internships they interviewed for
 \end{enumerate}
 \textbf{Student feedback submission}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{23}
+    \setcounter{enumi}{22}
     \item The System shall ask Students to provide feedback about an internship by filling out a form
     \item The System shall allow Companies to publicly comment on the feedback they received
     \item The System shall allow Students to see feedback about Companies from past internships they offered
 \end{enumerate}
 \textbf{Company feedback submission}
 \begin{enumerate}[label={[R\arabic{enumi}]}]
-    \setcounter{enumi}{26}
+    \setcounter{enumi}{25}
     \item The System shall ask Companies to provide feedback about the Student's performance by filling out a form
     \item The System shall allow Students to publicly comment on the feedback they received 
     \item The System shall allow Companies to see feedback about Students from past internships they partook in
 \end{enumerate}
 
-\subsection{Use Cases Diagrams}
+\subsection{Use Cases Diagram}
     \includegraphics[width=\textwidth]{RASD/images/otherDiagrams/UseCaseDiagram.png}
 
 \subsection{Use Cases}
@@ -839,6 +835,8 @@ The user uses an internet connection to access the platform. The platform must b
     \begin{itemize}
         \item The company has posted an internship announcement on the platform
         \item The student has been accepted by the company for the interview 
+        \item The company has logged in to the S\&C platform
+        \item The student has logged in to the S\&C platform
     \end{itemize}\\ \hline
     \textbf{Event Flow} & 
     \begin{enumerate}
@@ -922,7 +920,7 @@ The user uses an internet connection to access the platform. The platform must b
     \end{enumerate} \\ \hline
     \textbf{Exit Condition} & 
     \begin{itemize}
-        \item The student has successfully admitted to the internship
+        \item The student has successfully been admitted to the internship
     \end{itemize}\\ \hline
     \textbf{Exceptions} & 
     \\ \hline
@@ -1167,22 +1165,17 @@ The user uses an internet connection to access the platform. The platform must b
     \textbf{[G1] \newline Companies find suitable candidates based on the requirements of their projects and positions } & 
     \begin{itemize}[label=$\bullet$]
         \item [R1] The System shall allow new users to sign up by providing their personal information
-        \item [R2] The System shall allow registered users to sign in by providing a username and a password
-        \item [R3] The System shall allow Students to upload a new CV
-        \item [R4] The System shall allow Companies to create internship announcement posts containing all the needed
-        details
+        \item [R2] The System shall allow registered users to log in by providing a username and a password
+        \item [R3] The System shall allow Students to upload a CV
+        \item [R4] The System shall allow Companies to create internship announcement posts containing all the needed details
         \item [R5] The System shall allow Companies to modify existing internship announcement posts updating the details
         \item [R6] The System shall allow Companies to delete existing internship announcement posts
         \item [R7] The System shall allow Students to view the details of any internship
-        \item [R8] The System shall allow Students to browse the suggested internships
-        \item [R9] The System shall allow Students to apply for an internship
         \item [R10] The System shall allow Students to accept an internship proposal from a Company
+        \item [R12] The System shall use the Recommendation Engine to analyze student profiles to match them with internships proposed by companies
         \item [R13] The System shall suggest to Companies Students who match their requirements for an internship proposal
-        \item [R14] The System shall use the Recommendation Engine to analyze student profiles to match them with
-        internships proposed by companies
-        \item Controllare R12, 13, 14, 15 non so se siano in ordine giusto
-        \item [R16] The system shall allow companies to review the suggested students to select the ones they wish to contact for an internship proposal
-        \item [R17] The system shall notify Students selected by Companies for an internship
+        \item [R15] The system shall allow companies to review the suggested students to select the ones they wish to contact for an internship proposal
+        \item [R16] The system shall notify Students selected by Companies for an internship
     \end{itemize}
     &
     \begin{itemize}[label=$\bullet$]
@@ -1196,8 +1189,8 @@ The user uses an internet connection to access the platform. The platform must b
     \textbf{[G2] \newline Students find internships matching their profile and experiences} & 
     \begin{itemize}[label=$\bullet$]
         \item [R1] The System shall allow new users to sign up by providing their personal information
-        \item [R2] The System shall allow registered users to sign in by providing a username and a password
-        \item [R3] The System shall allow Students to upload a new CV
+        \item [R2] The System shall allow registered users to log in by providing a username and a password
+        \item [R3] The System shall allow Students to upload CV
         \item [R4] The System shall allow Companies to create internship announcement posts containing all the needed details
         \item [R7] The System shall allow Students to view the details of any internship
         \item [R8] The System shall allow Students to browse the suggested internships
@@ -1205,7 +1198,7 @@ The user uses an internet connection to access the platform. The platform must b
         \item [R10] The System shall allow Students to accept an internship proposal from a Company
         \item [R11] The System shall allow Students to check the status of the applications they’ve submitted
         \item [R12] The System shall use the Recommendation Engine to analyze student profiles to match them with internships proposed by companies
-        \item [R15] The System shall suggest to Students Companies that offer internships aligned with their skills and experiences
+        \item [R14] The System shall suggest to Students Companies that offer internships aligned with their skills and experiences
     \end{itemize}
     &
     \begin{itemize}[label=$\bullet$]
@@ -1218,10 +1211,8 @@ The user uses an internet connection to access the platform. The platform must b
         \textbf{[G3] \newline Students proactively look for internships that align with their skills, experiences, and preferences} & 
     \begin{itemize}[label=$\bullet$]
         \item [R1] The System shall allow new users to sign up by providing their personal information
-        \item [R2] The System shall allow registered users to sign in by providing a username and a password
+        \item [R2] The System shall allow registered users to log in by providing a username and a password
         \item [R4] The System shall allow Companies to create internship announcement posts containing all the needed details
-        \item [R5] The System shall allow Companies to modify existing internship announcement posts updating the details
-        \item [R6] The System shall allow Companies to delete existing internship announcement posts
         \item [R7] The System shall allow Students to view the details of any internship
         \item [R8] The System shall allow Students to browse the suggested internships
         \item [R9] The System shall allow Students to apply for an internship
@@ -1238,11 +1229,11 @@ The user uses an internet connection to access the platform. The platform must b
         \textbf{[G4] \newline Companies are facilitated in managing interviews} & 
     \begin{itemize}[label=$\bullet$]
         \item [R1] The System shall allow new users to sign up by providing their personal information
-        \item [R2] The System shall allow registered users to sign in by providing a username and a password
-        \item [R18] The System shall allow Companies to propose three possible dates to Students for an interview
-        \item [R19] The System shall allow Students to accept one of the proposed dates for an interview
-        \item [R20] The System shall allow Students to ask Companies to provide new possible dates for an interview
-        \item [R21] The System shall allow the hosting of online interviews between Companies and Students via a third party app
+        \item [R2] The System shall allow registered users to log in by providing a username and a password
+        \item [R17] The System shall allow Companies to propose three possible dates to Students for an interview
+        \item [R18] The System shall allow Students to accept one of the proposed dates for an interview
+        \item [R19] The System shall allow Students to ask Companies to provide new possible dates for an interview
+        \item [R20] The System shall allow the hosting of online interviews between Companies and Students via a third party app
     \end{itemize}
     &
     \begin{itemize}[label=$\bullet$]
@@ -1252,17 +1243,18 @@ The user uses an internet connection to access the platform. The platform must b
     \hline
 
         % ----------- Fifth Goal ----------
-        \textbf{[G5] \newline Companies manage ongoing internships} & 
+        \textbf{[G5] \newline Companies manage student admissions to internships} & 
     \begin{itemize}[label=$\bullet$]
         \item [R1] The System shall allow new users to sign up by providing their personal information
-        \item [R2] The System shall allow registered users to sign in by providing a username and a password
-        \item [R22] The System shall allow companies to select students to admit to internships they interviewed for
-        \item [R23] The System shall allow students to check for their admission to internships they interviewed for
+        \item [R2] The System shall allow registered users to log in by providing a username and a password
+        \item [R21] The System shall allow companies to select students to admit to internships they interviewed for
+        \item [R22] The System shall allow students to check for their admission to internships they interviewed for
     \end{itemize}
     &
     \begin{itemize}[label=$\bullet$]
         \item [D1] Users have a reliable Internet connection
         \item [D4] Both parties attend the scheduled interviews on the platform
+        \item [D5] Students carry out the internships offered by the companies they were chosen for
     \end{itemize} \\ 
     \hline
 
@@ -1271,10 +1263,10 @@ The user uses an internet connection to access the platform. The platform must b
         \textbf{[G6] \newline Students provide feedback about the internships} & 
     \begin{itemize}[label=$\bullet$]
         \item [R1] The System shall allow new users to sign up by providing their personal information
-        \item [R2] The System shall allow registered users to sign in by providing a username and a password
-        \item [R24] The System shall ask Students to provide feedback about an internship by filling out a form
-        \item [R25] The System shall allow Companies to publicly comment on the feedback they received
-        \item [R26] The System shall allow Students to see feedback about Companies from past internships they offered
+        \item [R2] The System shall allow registered users to log in by providing a username and a password
+        \item [R23] The System shall ask Students to provide feedback about an internship by filling out a form
+        \item [R24] The System shall allow Companies to publicly comment on the feedback they received
+        \item [R25] The System shall allow Students to see feedback about Companies from past internships they offered
     \end{itemize}
     &
     \begin{itemize}[label=$\bullet$]
@@ -1286,11 +1278,10 @@ The user uses an internet connection to access the platform. The platform must b
         \textbf{[G7] \newline Companies provide feedback about the internships} & 
     \begin{itemize}[label=$\bullet$]
         \item [R1] The System shall allow new users to sign up by providing their personal information
-        \item [R2] The System must allow registered users to sign in by providing a username and a password
-        \item [R27] The System shall ask Companies to provide feedback about the Student’s performance by filling out aform
-        \item [R28] The System shall allow Students to publicly comment on the feedback they received
-        \item [R29] The System shall allow Companies to see feedback about Students from past internships they partook
-in
+        \item [R2] The System must allow registered users to log in by providing a username and a password
+        \item [R26] The System shall ask Companies to provide feedback about the Student’s performance by filling out a form
+        \item [R27] The System shall allow Students to publicly comment on the feedback they received
+        \item [R28] The System shall allow Companies to see feedback about Students from past internships they partook in
 
     \end{itemize}
     &
@@ -1301,7 +1292,7 @@ in
     \hline
     
 \end{longtable}
-
+\newpage
 
 \section{Performance Requirements}
 The system has to guarantee good performance to serve many users (companies and students). To achieve this goal the user experience must be as good as possible to fulfill this requirement the response time must be low no more than a second. If the user’s internet connection is slow the response time can increase significantly
@@ -1330,7 +1321,7 @@ Reliability is a core attribute for the S\&C platform, as it is expected to be a
 The platform must achieve a high level of availability. A target of 99.9\% uptime should be set, ensuring minimal disruptions. The system architecture should be designed to handle large volumes of concurrent users, especially during peak times. By integrating load balancing and scalable infrastructure, the platform can dynamically allocate resources to meet demand and avoid bottlenecks, maintaining smooth performance even under heavy load
 
 \subsection{Security}
-The S\&C platform handles sensitive personal and educational data, so security must be a top priority. All user data, including login credentials and student CVs, must be encrypted at rest and in transit. The platform must implement strong access controls, ensuring that only authorized users can access sensitive resources. Regular security audits should be conducted to identify and resolve vulnerabilities proactively
+The S\&C platform handles sensitive personal data, so security must be a top priority. All user data, including login credentials and student CVs, must be encrypted at rest and in transit. The platform must implement strong access controls, ensuring that only authorized users can access sensitive resources. Regular security audits should be conducted to identify and resolve vulnerabilities proactively
 
 \subsection{Maintainability}
 The S\&C platform must be designed for long-term maintainability. To facilitate quick updates and smooth debugging, the platform’s codebase should be modular, well-documented, and follow industry best practices. A detailed automated testing framework must be implemented, covering critical features and ensuring that new code does not break existing functionality. Maintaining high code quality is vital for minimizing technical debt, allowing new features to be integrated efficiently and securely
@@ -1366,6 +1357,7 @@ The Alloy model captures the following key aspects of the system's behaviour and
         \item Students can comment on feedback provided by companies about them during internships they participated in
     \end{itemize}
 \end{enumerate}
+For simplicity, the model assumes that internships can't be deleted.
     
 \begin{figure}[ht]
     \centering
