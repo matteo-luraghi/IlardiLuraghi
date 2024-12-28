@@ -7,7 +7,7 @@ Students\&Companies (S\&C) is a platform designed to address this challenge by s
 Additionally, S\&C supports the selection process by facilitating interviews and feedback collection. With features for proactive searching and personalized suggestions, the platform aims to create a seamless and transparent experience for all parties involved.
 
 \section{Scope}
-As described in the RASD, there are two main users that interact with the system: Students and Companies. \newline Students are individuals seeking internship opportunities. They can create and manage their profiles by uploading their CVs. The platform will notify students of relevant internship opportunities based on their profile information and allow them to apply directly. In addition, students can track their applications' status and receive company feedback. The system also provides a Recommendation Engine to suggest internships tailored to students' qualifications and preferences. Students can actively participate by proactively searching for internships or passively by checking suggested opportunities.\newline
+As the RASD describes, two main users interact with the system: Students and Companies. \newline Students are individuals seeking internship opportunities. They can create and manage their profiles by uploading their CVs. The platform will notify students of relevant internship opportunities based on their profile information and allow them to apply directly. In addition, students can track their applications' status and receive company feedback. The system also provides a Recommendation Engine to suggest internships tailored to students' qualifications and preferences. Students can actively participate by proactively searching for internships or passively by checking suggested opportunities.\newline
 Companies are the organizations offering internship opportunities. They will be able to post internship vacancies, specifying the required skills, tasks, technologies, and terms. Companies can manage and edit their internship postings and review and evaluate student applications. The system will help companies identify students who best match their internship requirements through a recommendation system. Companies will also be able to schedule interviews, manage the selection process, and check and respond to feedback provided by students.
 
 
@@ -58,6 +58,14 @@ The document is based on the following materials:
 \label{Architectural Design}
 
 \section{Overview: High-level components and their interaction}
+For the S\&C platform, we will adopt a three-tier architecture, a widely used software application design that separates the system into three distinct layers:  
+\begin{enumerate}
+    \item \textbf{Presentation Layer}: This is the user interface, where users interact with the application.  
+    \item \textbf{Application Layer}: This layer handles data processing and application logic. 
+    \item \textbf{Data Layer}: This is responsible for storing and managing the application's data.   
+\end{enumerate}
+
+The primary advantage of this architecture lies in its modularity. Each layer can be developed, maintained, and scaled independently by separate teams, ensuring greater flexibility and efficiency. Moreover, changes or scaling in one tier do not directly impact the others, making the system more adaptable to evolving requirements.
 
 \section{Component view}
 
@@ -66,8 +74,80 @@ The document is based on the following materials:
 \section{Runtime view}
 
 \section{Component interfaces}
+\textbf{InternshipManager}
+\begin{itemize}
+    \item getInternships() % of the company visiting the platform (and for student home?)
+    \item getInternship()
+    \item getStudentInternships() % the ones a student took part in or ongoing
+    \item getInternshipApplications()
+    \item getInternshipSuggestions()
+    \item selectStudentForInternship()
+    % new internship, update and delete?
+\end{itemize}
+
+\textbf{ApplicationManager}
+\begin{itemize}
+    \item submitApplication()
+    \item getApplications() % of the student visiting the platform
+    \item approveApplication()
+    \item rejectApplication()
+\end{itemize}
+
+\textbf{InternshipAnnouncementManager}
+\begin{itemize}
+    \item getInternshipAnnouncements() % of the company visiting the platform (and for student home?)
+    \item getInternshipAnnouncement()
+    \item newInternshipAnnouncement()
+    \item updateInternshipAnnouncement()
+    \item deleteInternshipAnnouncement()
+\end{itemize}
+
+\textbf{InternshipProposalManager}
+\begin{itemize}
+    \item suggestInternshipToStudent()
+\end{itemize}
+
+\textbf{InterviewManager}
+\begin{itemize}
+    \item proposeDates()
+    \item selectDate()
+    \item askForReschedule()
+    \item joinInterview()
+\end{itemize}
+
+\textbf{StudentProfileManager}
+\begin{itemize}
+    \item updateProfileInfo()
+    \item uploadCv()
+    \item getStudentProfile() % both for companies and the student logged in the platform
+\end{itemize}
+
+\textbf{CompanyProfileManager}
+\begin{itemize}
+    \item updateProfileInfo()
+\end{itemize}
+
+\textbf{FeedbackManager}
+\begin{itemize}
+    \item submitFeedback()
+    \item answerFeedback()
+\end{itemize}
+
+\textbf{RecommendationEngine}
+\begin{itemize}
+    \item getStudentSuggestions()
+    \item getCompanySuggestions()
+\end{itemize}
+\newpage
 
 \section{Selected architectural styles and patterns}
+The system follows a 3-tier architectural style due to its numerous benefits, with modularization into three independent layers being the most significant. These layers are:  
+
+\begin{itemize}
+    \item \textbf{Web Server (Presentation Tier):} This layer handles the user interface, typically presented as a website or web page. It can deliver static or dynamic content, usually developed using HTML, CSS, and JavaScript.
+    \item \textbf{Application Server (Middle Tier):} This layer is responsible for implementing the business logic.
+    \item \textbf{Database Server (Backend Tier):} This layer manages data storage and retrieval, operating on a database management system (DBMS) such as MySQL.
+\end{itemize}
 
 \section{Other design decisions}
 \subsection{Availability }
@@ -78,7 +158,9 @@ The document is based on the following materials:
 
 \chapter{User Interface Design}
 \label{User Interface Design}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SAME AS RASD (put in as last for readability)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 \chapter{Requirements Traceability}
