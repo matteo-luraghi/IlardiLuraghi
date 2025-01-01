@@ -69,74 +69,140 @@ The primary advantage of this architecture lies in its modularity. Each layer ca
 
 \section{Component view}
 
+\subsection{Class diagram}
+\includegraphics[width=\textwidth]{DD/images/otherDiagrams/ClassDiagram.png}
+
 \section{Deployment view}
 
 \section{Runtime view}
 
+\begin{center}
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/SignupSequenceDiagram.png}
+    %\textbf{[UC1] User signs up}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/LoginSequenceDiagram.png}
+    %\textbf{[UC2] User logs in}
+    
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentUploadsCV.png}
+    \textbf{[UC3] Student uploads CV}
+    
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentAppliesToInernshipFound.png}
+    \textbf{[UC4] Student applies to an internship he found}
+
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentChecksInternshipProposedByCompany.png}
+    \textbf{[UC5] Student checks an internship proposed by a company}
+
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentChecksInternshipProposedBySystem.png}
+    \textbf{[UC6] Student checks an internship proposed by the system}
+
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyCreatesInternshipAnnouncement.png}
+    \textbf{[UC7] Company creates an internship announcement}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/ModifyInternshipAnnouncementSequenceDiagram.png}
+    %\textbf{[UC8] Company modifies an internship announcement}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/DeleteInternshipAnnouncementSequenceDiagram.png}
+    %\textbf{[UC9] Company deletes an internship announcement}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/ReviewStudentCVSequenceDiagram.png}
+    %\textbf{[UC10] Company reviews a student's application}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyOffersInternshipSequenceDiagram.png}
+    %\textbf{[UC11] Company offers an internship to a student}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/InterviewSetupSequenceDiagram.png}
+    %\textbf{[UC12] Student and company set up the interview}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/InterviewMeetupSequenceDiagram.png}
+    %\textbf{[UC13] Student and company meet for the interview}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyAdmitsStudentToInternship.png}
+    %\textbf{[UC14] Company admits a student to an internship}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentFeedbackSequenceDiagram.png}
+    %\textbf{[UC15] Student provides feedback on an internship}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyFeedbackSequenceDiagram.png}
+    %\textbf{[UC16] Company provides feedback on a student}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentAnswerSequenceDiagram.png}
+    %\textbf{[UC17] Student answers a comment about them}
+
+    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyAnswerSequenceDiagram.png}
+    %\textbf{[UC18] Company answers a comment about an internship if offered}
+\end{center}
+
 \section{Component interfaces}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% TODO: metodi della webapp (es per login e signup)
+
 \textbf{InternshipManager}
 \begin{itemize}
-    \item getInternships() % of the company visiting the platform (and for student home?)
-    \item getInternship()
-    \item getStudentInternships() % the ones a student took part in or ongoing
-    \item getInternshipApplications()
-    \item getInternshipSuggestions()
-    \item selectStudentForInternship()
-    % new internship, update and delete?
+    \item getCompanyInternships(companyId)
+    \item getStudentInternships(studentId) % the ones a student took part in or ongoing
+    \item getCompanyProposals(studentId)
+    \item getInternship(internshipId)
+    \item getApplications(inernshipId)
+    \item selectStudent(internshipId, studentId) % accept the student to the internship
+    \item createInternship(companyId, data) % elaborate "data"
+    \item modifyInternship(internshipId, data)
+    \item deleteInternship(internshipId)
+    \item suggestInternshipToStudent(studentId, internshipId)
 \end{itemize}
 
 \textbf{ApplicationManager}
 \begin{itemize}
-    \item submitApplication()
-    \item getApplications() % of the student visiting the platform
-    \item approveApplication()
-    \item rejectApplication()
+    \item applyToInternship(studentId, internshipId, applicationStatus) % pending (default) or approved if proposed by company
+    \item getApplications(studentId) % of the student visiting the platform
+    \item acceptApplication(studentId, internshipId)
+    \item rejectApplication(studentId, internshipId)
 \end{itemize}
 
-\textbf{InternshipAnnouncementManager}
-\begin{itemize}
-    \item getInternshipAnnouncements() % of the company visiting the platform (and for student home?)
-    \item getInternshipAnnouncement()
-    \item newInternshipAnnouncement()
-    \item updateInternshipAnnouncement()
-    \item deleteInternshipAnnouncement()
-\end{itemize}
-
-\textbf{InternshipProposalManager}
-\begin{itemize}
-    \item suggestInternshipToStudent()
-\end{itemize}
+%\textbf{InternshipProposalManager}
+%\begin{itemize}
+ %   \item suggestInternshipToStudent(studentId, internshipId)
+%\end{itemize}
 
 \textbf{InterviewManager}
 \begin{itemize}
-    \item proposeDates()
-    \item selectDate()
-    \item askForReschedule()
-    \item joinInterview()
+    \item getStudentInterviews(studentId)
+    \item getCompanyInterviews(companyId)
+    \item chooseThreeDates(studentId, internshipId, possibleDates)
+    \item selectDate(studentId, internshipId, selectedDate)
+    \item requestNewDates(studentId, internshipId)
+    \item joinInterview(interviewId)
 \end{itemize}
 
 \textbf{StudentProfileManager}
 \begin{itemize}
-    \item updateProfileInfo()
-    \item uploadCv()
-    \item getStudentProfile() % both for companies and the student logged in the platform
+    \item updateStudentProfileInfo(studentId, data)
+    \item uploadCv(studentId, cv)
+    \item getStudentProfile(studentId) % view for the logged in student
+    \item getStudentDetails(studentId) % view for companies
 \end{itemize}
 
 \textbf{CompanyProfileManager}
 \begin{itemize}
-    \item updateProfileInfo()
+    \item getCompanyProfile(companyId)
+    \item updateCompanyProfileInfo(companyId, data)
 \end{itemize}
 
 \textbf{FeedbackManager}
 \begin{itemize}
-    \item submitFeedback()
-    \item answerFeedback()
+    % by a student about an internship
+    \item submitStudentFeedback(studentId, internshipId, feedbackContent) 
+    % by a company about a student on a particular internship
+    \item submitCompanyFeedback(internshipId, studentId, feedbackContent)
+     % company answers, return is a companyComment
+    \item answerStudentFeedback(companyId, studentId, answerContent)
+     % student answers, return is a studentComment
+    \item answerCompanyFeedback(studentId, companyId, answerContent)
 \end{itemize}
 
 \textbf{RecommendationEngine}
 \begin{itemize}
-    \item getStudentSuggestions()
-    \item getCompanySuggestions()
+    \item getStudentSuggestions(studentId)
+    \item getInternshipSuggestions(internshipId)
 \end{itemize}
 \newpage
 
@@ -165,6 +231,86 @@ The system follows a 3-tier architectural style due to its numerous benefits, wi
 
 \chapter{Requirements Traceability}
 \label{Requirements Traceability}
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Sign up and log in} \newline [R1] The System shall allow new users to sign up by providing their personal information \newline [R2] The System shall allow registered users to log in by providing a username and a password \\  \hline
+    \textbf{Components} & Webapp \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Student CV management} \newline [R3] The System shall allow Students to upload a CV \\  \hline
+    \textbf{Components} & Webapp \newline StudentProfileManager \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Internship announcement posting} \newline [R4] The System shall allow Companies to create internship announcement posts containing all the needed details \newline [R5] The System shall allow Companies to modify existing internship announcement posts updating the details \newline [R6] The System shall allow Companies to delete existing internship announcement posts \\  \hline
+    \textbf{Components} & Webapp \newline InternshipManager \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Internship application} \newline [R7] The System shall allow Students to view the details of any internship \newline [R8] The System shall allow Students to browse the suggested internships \newline [R9] The System shall allow Students to apply for an internship \newline [R10] The System shall allow Students to accept an internship proposal from a Company \newline [R11] The System shall allow Students to check the status of the applications they've submitted \\  \hline
+    \textbf{Components} & Webapp \newline InternshipManager \newline ApplicationManager \newline RecommendationEngine \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Student and Company recommendation} \newline [R12] The System shall use the Recommendation Engine to analyze student profiles to match them with internships proposed by companies\newline [R13] The System shall suggest to Companies Students who match their requirements for an internship proposal \newline [R14] The System shall suggest to Students Companies that offer internships aligned with their skills and experiences \\  \hline
+    \textbf{Components} & Webapp \newline RecommendationEngine \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Company reach out} \newline [R15] The system shall allow Companies to review the suggested students to select the ones they wish to contact for an internship proposal \newline [R16] The system shall notify Students selected by Companies for an internship \\  \hline
+    \textbf{Components} & Webapp \newline InternshipManager \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Interview hosting} \newline [R17] The System shall allow Companies to propose three possible dates to Students for an interview \newline [R18] The System shall allow Students to accept one of the proposed dates for an interview \newline [R19] The System shall allow Students to ask Companies to provide new possible dates for an interview \newline [R20] The System shall allow the hosting of online interviews between Companies and Students via a third party app \\  \hline
+    \textbf{Components} & Webapp \newline InterviewManager \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Student admission} \newline [R21] The System shall allow companies to select students to admit to internships they interviewed for \newline [R22] The System shall allow students to check for their admission to internships they interviewed for \\  \hline
+    \textbf{Components} & Webapp \newline ApplicationManager \newline InternshipManager \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Student feedback submission} \newline [R23] The System shall ask Students to provide feedback about an internship by filling out a form \newline [R24] The System shall allow Companies to publicly comment on the feedback they received \newline [R25] The System shall allow Students to see feedback about Companies from past internships they offered \\  \hline
+    \textbf{Components} & Webapp \newline FeedbackManager \newline InternshipManager \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+    \hline
+\textbf{Requirements} & \textbf{Company feedback submission} \newline [R26] The System shall ask Companies to provide feedback about the Student's performance by filling out a form \newline [R27] The System shall allow Students to publicly comment on the feedback they received  \newline [R28] The System shall allow Companies to see feedback about Students from past internships they partook in \\  \hline
+    \textbf{Components} & Webapp \newline StudentProfileManager \newline Database \\ \hline
+    \end{tabular}
+    \newline
+    \newline
 
 \newpage
 
