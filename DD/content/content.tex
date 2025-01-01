@@ -53,7 +53,6 @@ The document is based on the following materials:
 \end{enumerate}
 
 
-
 \chapter{Architectural Design}
 \label{Architectural Design}
 
@@ -73,6 +72,8 @@ The primary advantage of this architecture lies in its modularity. Each layer ca
 \includegraphics[width=\textwidth]{DD/images/otherDiagrams/ClassDiagram.png}
 
 \section{Deployment view}
+\includegraphics[width=\textwidth]{DD/images/otherDiagrams/DeploymentView.png}
+The client-side S\&C app runs in the browser, and every client request is first processed by a firewall to detect and block any malicious activity. A load balancer prevents brute force attacks and ensures the server is not overwhelmed by excessive requests, protecting its CPU capacity. The application server, running in a Docker container, manages the server-side software architecture. The application server updates any changes to the database via TCP/IP. Running the server in a Docker container provides portability, scalability, and consistent environment management benefits.
 
 \section{Runtime view}
 
@@ -207,18 +208,32 @@ The primary advantage of this architecture lies in its modularity. Each layer ca
 \newpage
 
 \section{Selected architectural styles and patterns}
+
+\subsection{3-tier architecture}
 The system follows a 3-tier architectural style due to its numerous benefits, with modularization into three independent layers being the most significant. These layers are:  
 
 \begin{itemize}
-    \item \textbf{Web Server (Presentation Tier):} This layer handles the user interface, typically presented as a website or web page. It can deliver static or dynamic content, usually developed using HTML, CSS, and JavaScript.
-    \item \textbf{Application Server (Middle Tier):} This layer is responsible for implementing the business logic.
-    \item \textbf{Database Server (Backend Tier):} This layer manages data storage and retrieval, operating on a database management system (DBMS) such as MySQL.
+    \item \textbf{Web Server (Presentation Tier):} this layer handles the user interface, presented as a website
+    \item \textbf{Application Server (Middle Tier):} this layer is responsible for implementing the business logic
+    \item \textbf{Database Server (Backend Tier):} this layer manages data storage and retrieval, operating on a database management system (DBMS)
 \end{itemize}
+
+\subsection{Model View Controller pattern}
+The Model-View-Controller pattern is a robust choice for implementing the S\&C platform. It is structured as follows:
+\begin{itemize}
+    \item \textbf{Model:} manages the application’s data, business logic, and rules
+    \item \textbf{View:} handles the presentation of data to the end user
+    \item \textbf{Controller:} acts as an intermediary between the Model and the View, processing user input and ensuring proper data flow and format between components
+\end{itemize}
+
+This clear division of components enhances scalability, promotes reusability, and ensures the independence of each module, allowing for easier maintenance and future development.
 
 \section{Other design decisions}
 \subsection{Availability }
-\subsection{Data Storage }
+Load balancing is introduced to create a highly available system capable of handling a large number of requests simultaneously. Replication is also crucial to prevent a single point of failure.
+
 \subsection{Security }
+Security is managed through a firewall, it acts as a barrier between the internal system and external threats, ensuring that only authorized traffic is allowed while safeguarding the system from malicious activities.
 
 \newpage
 
