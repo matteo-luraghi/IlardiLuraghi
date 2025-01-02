@@ -73,7 +73,7 @@ The primary advantage of this architecture lies in its modularity. Each layer ca
 
 \section{Deployment view}
 \includegraphics[width=\textwidth]{DD/images/otherDiagrams/DeploymentView.png}
-The client-side S\&C app runs in the browser, and every client request is first processed by a firewall to detect and block any malicious activity. A load balancer prevents brute force attacks and ensures the server is not overwhelmed by excessive requests, protecting its CPU capacity. The application server, running in a Docker container, manages the server-side software architecture. The application server updates any changes to the database via TCP/IP. Running the server in a Docker container provides portability, scalability, and consistent environment management benefits.
+The client-side S\&C app runs in the browser, and every client request is first processed by a firewall to detect and block any malicious activity. A load balancer prevents brute force attacks and ensures the server is not overwhelmed by excessive requests, protecting its CPU capacity. The application server, running in a Docker container, manages the server-side software architecture. The application server updates any changes to the database via TCP/IP. Running the server in a Docker container provides portability, scalability, and consistent environment management.
 
 \section{Runtime view}
 
@@ -99,11 +99,11 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyCreatesInternshipAnnouncement.png}
     \textbf{[UC7] Company creates an internship announcement}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/ModifyInternshipAnnouncementSequenceDiagram.png}
-    %\textbf{[UC8] Company modifies an internship announcement}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/ModifyInternshipAnnouncementSequenceDiagram.png}
+    \textbf{[UC8] Company modifies an internship announcement}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/DeleteInternshipAnnouncementSequenceDiagram.png}
-    %\textbf{[UC9] Company deletes an internship announcement}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/DeleteInternshipAnnouncementSequenceDiagram.png}
+    \textbf{[UC9] Company deletes an internship announcement}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/ReviewStudentCVSequenceDiagram.png}
     %\textbf{[UC10] Company reviews a student's application}
@@ -117,8 +117,8 @@ The client-side S\&C app runs in the browser, and every client request is first 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/InterviewMeetupSequenceDiagram.png}
     %\textbf{[UC13] Student and company meet for the interview}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyAdmitsStudentToInternship.png}
-    %\textbf{[UC14] Company admits a student to an internship}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyAdmitsStudentToInternship.png}
+    \textbf{[UC14] Company admits a student to an internship}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentFeedbackSequenceDiagram.png}
     %\textbf{[UC15] Student provides feedback on an internship}
@@ -135,28 +135,29 @@ The client-side S\&C app runs in the browser, and every client request is first 
 
 \section{Component interfaces}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%% TODO: metodi della webapp (es per login e signup)
+%%%%%%%%%%%%%%%%%%%%%%%%%% TODO: metodi della webapp (es per login e signup) e del database
 
 \textbf{InternshipManager}
 \begin{itemize}
-    \item getCompanyInternships(companyId)
-    \item getStudentInternships(studentId) % the ones a student took part in or ongoing
-    \item getCompanyProposals(studentId)
-    \item getInternship(internshipId)
-    \item getApplications(inernshipId)
-    \item selectStudent(internshipId, studentId) % accept the student to the internship
-    \item createInternship(companyId, data) % elaborate "data"
-    \item modifyInternship(internshipId, data)
-    \item deleteInternship(internshipId)
-    \item suggestInternshipToStudent(studentId, internshipId)
+    \item getCompanyInternships(companyId: int) : List[Internship]
+    \item getStudentInternships(studentId: int) : List[Internship] % the ones a student took part in or ongoing
+    \item getCompanyProposals(studentId: int) : List[Internship]
+    \item getInternship(internshipId: int) : Internship % CONTAINS STUDENT FEEDBACKS (and company comments)
+    \item getApplications(inernshipId: int) : List[Application]
+    \item selectStudent(internshipId: int, studentId: int) % accept the student to the internship
+    \item createInternship(companyId: int, internshipData: json) % elaborate "data"
+    \item modifyInternship(internshipId: int, internshipData: json)
+    \item deleteInternship(internshipId: int)
+    \item suggestInternshipToStudent(studentId: int, internshipId: int)
 \end{itemize}
 
 \textbf{ApplicationManager}
 \begin{itemize}
-    \item applyToInternship(studentId, internshipId, applicationStatus) % pending (default) or approved if proposed by company
-    \item getApplications(studentId) % of the student visiting the platform
-    \item acceptApplication(studentId, internshipId)
-    \item rejectApplication(studentId, internshipId)
+    \item applyToInternship(studentId: int, internshipId: int, applicationStatus: ApplicationStatus) % pending (default) or approved if proposed by company
+    \item getStudentApplications(studentId: int) : List[Application] % of the student visiting the platform
+    \item getInternshipApplications(internshipId: int) : List[Application] % applications done on the internship by students
+    \item acceptApplication(studentId: int, internshipId: int)
+    \item rejectApplication(studentId: int, internshipId: int)
 \end{itemize}
 
 %\textbf{InternshipProposalManager}
@@ -166,44 +167,44 @@ The client-side S\&C app runs in the browser, and every client request is first 
 
 \textbf{InterviewManager}
 \begin{itemize}
-    \item getStudentInterviews(studentId)
-    \item getCompanyInterviews(companyId)
-    \item chooseThreeDates(studentId, internshipId, possibleDates)
-    \item selectDate(studentId, internshipId, selectedDate)
-    \item requestNewDates(studentId, internshipId)
-    \item joinInterview(interviewId)
+    \item getStudentInterviews(studentId: int) : List[Interview]
+    \item getCompanyInterviews(companyId: int) : List[Interview]
+    \item chooseThreeDates(studentId: int, internshipId: int, possibleDates: List[Date])
+    \item selectDate(studentId: int, internshipId: int, selectedDate: Date)
+    \item requestNewDates(studentId: int, internshipId: int)
+    \item joinInterview(interviewId: int)
 \end{itemize}
 
 \textbf{StudentProfileManager}
 \begin{itemize}
-    \item updateStudentProfileInfo(studentId, data)
-    \item uploadCv(studentId, cv)
-    \item getStudentProfile(studentId) % view for the logged in student
-    \item getStudentDetails(studentId) % view for companies
+    \item updateStudentProfileInfo(studentId: int, data: json)
+    \item uploadCv(studentId: int, cv: File)
+    \item getStudentProfile(studentId: int) : json % view for the logged in student
+    \item getStudentDetails(studentId: int) : json % view for companies, CONTAINS COMPANY FEEDBACK & st comments
 \end{itemize}
 
 \textbf{CompanyProfileManager}
 \begin{itemize}
-    \item getCompanyProfile(companyId)
-    \item updateCompanyProfileInfo(companyId, data)
+    \item getCompanyProfile(companyId: int) : json
+    \item updateCompanyProfileInfo(companyId: int, data : json)
 \end{itemize}
 
 \textbf{FeedbackManager}
 \begin{itemize}
     % by a student about an internship
-    \item submitStudentFeedback(studentId, internshipId, feedbackContent) 
+    \item submitStudentFeedback(studentId: int, internshipId: int, feedbackContent: String) 
     % by a company about a student on a particular internship
-    \item submitCompanyFeedback(internshipId, studentId, feedbackContent)
+    \item submitCompanyFeedback(internshipId: int, studentId: int, feedbackContent: String)
      % company answers, return is a companyComment
-    \item answerStudentFeedback(companyId, studentId, answerContent)
+    \item answerStudentFeedback(companyId: int, studentId: int, answerContent: String)
      % student answers, return is a studentComment
-    \item answerCompanyFeedback(studentId, companyId, answerContent)
+    \item answerCompanyFeedback(studentId: int, companyId: int, answerContent: String)
 \end{itemize}
 
 \textbf{RecommendationEngine}
 \begin{itemize}
-    \item getStudentSuggestions(studentId)
-    \item getInternshipSuggestions(internshipId)
+    \item getStudentSuggestions(studentId: int) : List[StudentRecommendation]
+    \item getInternshipSuggestions(internshipId: int) : List[CompanyRecommendation]
 \end{itemize}
 \newpage
 
@@ -230,7 +231,7 @@ This clear division of components enhances scalability, promotes reusability, an
 
 \section{Other design decisions}
 \subsection{Availability }
-Load balancing is introduced to create a highly available system capable of handling a large number of requests simultaneously. Replication is also crucial to prevent a single point of failure.
+Load balancing is introduced to create a highly available system capable of handling many requests simultaneously. Replication is also crucial to prevent a single point of failure.
 
 \subsection{Security }
 Security is managed through a firewall, it acts as a barrier between the internal system and external threats, ensuring that only authorized traffic is allowed while safeguarding the system from malicious activities.
