@@ -137,6 +137,13 @@ The client-side S\&C app runs in the browser, and every client request is first 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% TODO: metodi della webapp (es per login e signup) e del database
 
+\textbf{AuthenticationManager}
+\begin{itemize}
+    \item getRegistrationForm(role: enum(COMPANY, STUDENT))
+    \item signUpUser(personalData: json)
+    \item loginUser(credentials: json)
+\end{itemize}
+
 \textbf{InternshipManager}
 \begin{itemize}
     \item getCompanyInternships(companyId: int) : List[Internship]
@@ -215,7 +222,7 @@ The system follows a 3-tier architectural style due to its numerous benefits, wi
 
 \begin{itemize}
     \item \textbf{Web Server (Presentation Tier):} this layer handles the user interface, presented as a website
-    \item \textbf{Application Server (Middle Tier):} this layer is responsible for implementing the business logic
+    \item \textbf{Application Server (Middle Tier):} this layer is responsible for implementing the business logic and runs the S\&C server in a Docker container
     \item \textbf{Database Server (Backend Tier):} this layer manages data storage and retrieval, operating on a database management system (DBMS)
 \end{itemize}
 
@@ -227,7 +234,9 @@ The Model-View-Controller pattern is a robust choice for implementing the S\&C p
     \item \textbf{Controller:} acts as an intermediary between the Model and the View, processing user input and ensuring proper data flow and format between components
 \end{itemize}
 
-This clear division of components enhances scalability, promotes reusability, and ensures the independence of each module, allowing for easier maintenance and future development.
+For the S\&C platform, all components except the Webapp will serve as the Model. The Webapp will handle both the View and Controller aspects, facilitating communication with the Model components and rendering the user interface by translating the data accordingly. 
+
+This division ensures a clear separation of concerns, enhancing scalability, promoting reusability, and maintaining the independence of each module, which simplifies maintenance and future development.
 
 \section{Other design decisions}
 \subsection{Availability }
@@ -240,9 +249,66 @@ Security is managed through a firewall, it acts as a barrier between the interna
 
 \chapter{User Interface Design}
 \label{User Interface Design}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SAME AS RASD (put in as last for readability)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Student's View }
+\begin{center}
+    \includegraphics[width=\textwidth,height=0.52\textheight]{DD/images/ui/student/home.png}
+    \textbf{Homepage}
+    
+    \includegraphics[width=\textwidth,height=0.48\textheight]{DD/images/ui/student/company-proposals.png}
+    \textbf{Company Proposals}
+    
+    \includegraphics[width=\textwidth,height=0.47\textheight]{DD/images/ui/student/suggestions.png}
+    \textbf{Suggestions}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/student/applications.png}
+    \textbf{Applications}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/student/internships.png}
+    \textbf{Internships}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/student/internship-details-before.png}
+    \textbf{Available internship details}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/student/internship-details-after.png}
+    \textbf{Past internship details}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/student/interviews.png}
+    \textbf{Interviews}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/student/profile.png}
+    \textbf{Profile}
+\end{center}
+
+\subsubsection{Company's View}
+\begin{center}
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/company/home.png}
+    \textbf{Homepage}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/company/internships.png}
+    \textbf{Internships}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/company/new-internship.png}
+    \textbf{New internship form}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/company/internship-details.png}
+    \textbf{Internship details}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/company/internship-applications.png}
+    \textbf{Internship applications}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/company/internship-suggestions.png}
+    \textbf{Internship suggestions}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/company/interviews.png}
+    \textbf{Interviews}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/company/student-info.png}
+    \textbf{Student profile}
+    
+    \includegraphics[width=\textwidth,height=0.44\textheight]{DD/images/ui/company/profile.png}
+    \textbf{Profile}
+\end{center}
+
 \newpage
 
 \chapter{Requirements Traceability}
@@ -251,7 +317,7 @@ Security is managed through a firewall, it acts as a barrier between the interna
 \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
 \textbf{Requirements} & \textbf{Sign up and log in} \newline [R1] The System shall allow new users to sign up by providing their personal information \newline [R2] The System shall allow registered users to log in by providing a username and a password \\  \hline
-    \textbf{Components} & Webapp \newline Database \\ \hline
+    \textbf{Components} & Webapp \newline AuthenticationManager \newline Database \\ \hline
     \end{tabular}
     \newline
     \newline
@@ -334,16 +400,134 @@ Security is managed through a firewall, it acts as a barrier between the interna
 \label{Implementation, Integration and Test Plan}
 
 \section{Overview}
+This section outlines the methodologies and strategies for implementing and testing the S\&C platform. The primary goal of testing is to detect and address bugs introduced during development. The planned implementation strategies are detailed, alongside an explanation of the integration process for the various code components. These measures ensure the system meets the functional and non-functional requirements defined in the initial phases of the software development lifecycle.
 
 \section{Implementation plan}
+The \textbf{top-down approach} will be used to implement and integrate the various components of the system. This approach focuses on incremental integration and testing, starting from the highest-level interfaces and progressively working down to the lower-level modules.
+
+The process begins with the development and testing of top-level components, in this case, the Webapp containing the user interface and the API to communicate with the low-level components. Drivers are used to simulate interactions with these high-level interfaces, ensuring that they function correctly.
+
+To facilitate testing during development, placeholder stubs are introduced for lower-level components that are not yet implemented. These stubs simulate the behaviour of the missing components, enabling continuous testing of the integrated system without waiting for all components to be ready.
+
+As individual components are completed, they replace their corresponding stubs, progressively expanding the functionality of the system. This iterative process also involves introducing new stubs as deeper levels of the system are developed, ensuring that integration and testing can continue seamlessly.
+
+Once all components have been implemented and integrated, the entire system undergoes comprehensive testing to validate its full functionality and adherence to the design specifications.
+
+The advantages of this approach are: early validation through high-level interface testing, continuous incremental testing to address issues early and reduce risks, modular flexibility for parallel development, and controlled alignment with system design and requirements throughout the process.
 
 \section{Components integration and testing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                IMPLEMENTATION PLAN                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 1. StudentProfileManager, CompanyProfileManager
+% 2. AuthenticationManager
+% 3. InternshipManager
+% 4. ApplicationManager
+% 5. ReommendationEngine
+% 6. InterviewManager
+% 7. FeedbackManager
 
 \section{System testing}
+The S\&C platform must be thoroughly tested to ensure its functionalities meet the expectations defined during the design and development phases. Each system component will undergo rigorous testing to identify and resolve potential issues. Some components may need stub and driver implementations to simulate interactions with missing or incomplete modules during early development stages: this allows us to test the components separately and independently from one another although they interact with each other. Once individual components are validated, they are incrementally integrated into the overall system for further testing.
 
-\section{Additional specifications on testing}
+The primary goal of system testing is to verify that the platform fulfils both functional and non-functional requirements as specified in the RASD document. This process requires collaboration among developers, testers, and stakeholders to ensure comprehensive coverage. The following testing phases will be carried out:
+
+\begin{itemize}
+\item \textbf{Functional Testing}
+This phase ensures that the platform's functionalities align with the requirements. For S\&C, this involves:
+\begin{itemize}
+    \item Testing whether students can upload their CVs, browse and apply for internships, and participate in interviews.
+    \item Verifying the recommendation engine’s ability to suggest internships and candidates accurately.
+    \item Ensuring companies can create and manage internship announcements, review applications, and manage interviews effectively.
+    \item Ensuring that both companies and students can provide feedback on each other and respond to comments.
+\end{itemize}
+These tests will primarily follow the use cases outlined in the RASD document.
+
+\item \textbf{Performance Testing}
+The platform must handle peak loads, especially during high-traffic periods such as application deadlines. Performance testing will:
+\begin{itemize}
+    \item Detect bottlenecks affecting response times, system throughput, and resource utilization.
+    \item Identify optimization opportunities for algorithms managing CV matching and recommendations.
+    \item Simulate workloads to ensure acceptable system performance under expected and peak conditions.
+\end{itemize}
+
+\item \textbf{Usability Testing}
+This phase focuses on evaluating the user interface and overall user experience. Usability tests will:
+\begin{itemize}
+    \item Observe real users (students and companies) performing typical tasks.
+    \item Gather feedback on the ease of use and intuitiveness of the platform's design.
+    \item Make iterative improvements to address usability concerns.
+\end{itemize}
+
+\item \textbf{Load Testing}
+Load testing will expose the system to increasing workloads to determine its limits. For S\&C, this includes:
+\begin{itemize}
+    \item Simulating thousands of concurrent users uploading CVs or browsing internships.
+    \item Stressing the recommendation engine with large datasets of CVs and internship postings.
+    \item Ensuring the system remains responsive during prolonged periods of high activity.
+\end{itemize}
+
+\item \textbf{Stress Testing}
+Stress testing will ensure the platform recovers after failures by:
+\begin{itemize}
+    \item Overloading system resources (e.g., memory, CPU) and observing recovery mechanisms.
+    \item Simulating unexpected network failures and verifying system stability.
+    \item Validating the integrity of stored data after failure scenarios.
+\end{itemize}
+
+\end{itemize}
+
+
+\section{Additional Specifications on Testing}
+To ensure continuous improvement, the development team will collect feedback at every stage of testing. This feedback will guide adjustments to the platform before deployment.
+
+\subsection{Alpha Testing}
+During alpha testing, stakeholders such as students and companies will interact with the platform in a controlled environment. Usability experts may design structured questionnaires to assess satisfaction levels and pinpoint usability issues. This phase will identify malfunctions and areas for improvement before proceeding to beta testing.
+
+\subsection{Beta Testing}
+Beta testing involves releasing the platform to a limited group of real users under production-like conditions. Key objectives include:
+\begin{itemize}
+    \item Uncovering bugs or issues in a live environment.
+    \item Collecting feedback on user satisfaction and system functionality.
+    \item Logging system errors to be addressed before general release.
+\end{itemize}
+
+\subsection{Post-release Monitoring}
+After deployment, the platform will continue to be monitored for issues. Logs will be automatically generated and sent to developers to facilitate debugging and future updates. Regular feedback from users will further ensure that the platform evolves to meet their needs.
 
 \newpage
 
 \chapter{Effort Spent}
 \label{Effort Spent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   TODO                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This section contains a record of the effort spent by each group member expressed in hours of work for each section of each chapter
+
+\begin{table}[h!]
+\centering
+\label{tab:example}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Chapter} & \textbf{Section} & \textbf{Ilardi's hours} & \textbf{Luraghi's hours} & \textbf{Collaborative hours} \\ \hline
+\multirow{3}{*}{Chapter 1} & Section 1.1 & 0 & 0 & 1\\ \cline{2-5}
+                           & Section 1.2 & 0 & 0 & 2 \\ \cline{2-5}
+                           & Sections 1.3, 1.4, 1.5, 1.6 & 0 & 0 & 0.5 \\ \cline{2-5}
+                            \hline
+\multirow{4}{*}{Chapter 2} & Section 2.1 & 2 & 0 & 7 \\ \cline{2-5}
+                           & Section 2.2 & 0 & 1 & 0 \\ \cline{2-5}
+                           & Section 2.3 & 0 & 1 & 0 \\ \cline{2-5}
+                           & Section 2.4 & 0 & 0 & 1 \\ \hline
+\multirow{3}{*}{Chapter 3} & Section 3.1 & 0 & 4 & 1 \\ \cline{2-5}
+                           & Section 3.2 & 9 & 2 & 7 \\ \cline{2-5}
+                           & Sections 3.3, 3.4, 3.5 & 1 & 0 & 1 \\ \hline
+\multirow{1}{*}{Chapter 4} &  & 0 & 5 & 1 \\ \hline
+\multirow{1}{*}{Chapter 5} &  & 1 & 0 & 0 \\ \hline
+
+\multirow{1}{*}{\textbf{Total}} &  & 13 & 13 & 21.5 \\ \hline
+
+\end{tabular}
+\end{table}
