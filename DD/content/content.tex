@@ -68,6 +68,20 @@ The primary advantage of this architecture lies in its modularity. Each layer ca
 
 \section{Component view}
 
+The components that make up the application are the following:
+\begin{itemize}
+   \item \textbf{AuthenticationManager}: handles login and signup functionalities
+    \item \textbf{InternshipManager}: manages internships, including creation, editing, and deletion
+    \item \textbf{ApplicationManager}: handles internship applications, including submission, acceptance, and rejection
+    \item \textbf{InterviewManager}: integrates with a third-party app for interviews and manages scheduling
+    \item \textbf{StudentProfileManager}: manages student profiles, personal details, and CV uploads
+    \item \textbf{CompanyProfileManager}: manages company profiles
+    \item \textbf{FeedbackManager}: supports feedback submission and commenting
+    \item \textbf{RecommendationEngine}: suggests internships and students based on preferences
+    \item \textbf{WebApp}: Serves as both the view and the controller. It routes user requests to the appropriate components, processes their responses, and sends the final view back to the end user
+    \item \textbf{Database}: stores all of the application's data
+\end{itemize}
+
 \subsection{Class diagram}
 \includegraphics[width=\textwidth]{DD/images/otherDiagrams/ClassDiagram.png}
 
@@ -106,36 +120,34 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \textbf{[UC9] Company deletes an internship announcement}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/ReviewStudentCVSequenceDiagram.png}
-    %\textbf{[UC10] Company reviews a student's application}
+    \textbf{[UC10] Company reviews a student's application}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyOffersInternshipSequenceDiagram.png}
-    %\textbf{[UC11] Company offers an internship to a student}
+    \textbf{[UC11] Company offers an internship to a student}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/InterviewSetupSequenceDiagram.png}
-    %\textbf{[UC12] Student and company set up the interview}
+    \textbf{[UC12] Student and company set up the interview}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/InterviewMeetupSequenceDiagram.png}
-    %\textbf{[UC13] Student and company meet for the interview}
+    \textbf{[UC13] Student and company meet for the interview}
 
     \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyAdmitsStudentToInternship.png}
     \textbf{[UC14] Company admits a student to an internship}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentFeedbackSequenceDiagram.png}
-    %\textbf{[UC15] Student provides feedback on an internship}
+    \textbf{[UC15] Student provides feedback on an internship}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyFeedbackSequenceDiagram.png}
-    %\textbf{[UC16] Company provides feedback on a student}
+    \textbf{[UC16] Company provides feedback on a student}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentAnswerSequenceDiagram.png}
-    %\textbf{[UC17] Student answers a comment about them}
+    \textbf{[UC17] Student answers a comment about them}
 
     %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyAnswerSequenceDiagram.png}
-    %\textbf{[UC18] Company answers a comment about an internship if offered}
+    \textbf{[UC18] Company answers a comment about an internship if offered}
 \end{center}
 
 \section{Component interfaces}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%% TODO: metodi della webapp (es per login e signup) e del database
 
 \textbf{AuthenticationManager}
 \begin{itemize}
@@ -167,11 +179,6 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \item rejectApplication(studentId: int, internshipId: int)
 \end{itemize}
 
-%\textbf{InternshipProposalManager}
-%\begin{itemize}
- %   \item suggestInternshipToStudent(studentId, internshipId)
-%\end{itemize}
-
 \textbf{InterviewManager}
 \begin{itemize}
     \item getStudentInterviews(studentId: int) : List[Interview]
@@ -179,6 +186,7 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \item chooseThreeDates(studentId: int, internshipId: int, possibleDates: List[Date])
     \item selectDate(studentId: int, internshipId: int, selectedDate: Date)
     \item requestNewDates(studentId: int, internshipId: int)
+    \item openThirdPartyApp(interviewId: int)
     \item joinInterview(interviewId: int)
 \end{itemize}
 
@@ -203,9 +211,9 @@ The client-side S\&C app runs in the browser, and every client request is first 
     % by a company about a student on a particular internship
     \item submitCompanyFeedback(internshipId: int, studentId: int, feedbackContent: String)
      % company answers, return is a companyComment
-    \item answerStudentFeedback(companyId: int, studentId: int, answerContent: String)
+    \item answerStudentFeedback(companyId: int, studentId: int, answerContent: String, studentFeedbackId: int)
      % student answers, return is a studentComment
-    \item answerCompanyFeedback(studentId: int, companyId: int, answerContent: String)
+    \item answerCompanyFeedback(studentId: int, companyId: int, answerContent: String, companyFeedbackId: int)
 \end{itemize}
 
 \textbf{RecommendationEngine}
@@ -214,6 +222,24 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \item getInternshipSuggestions(internshipId: int) : List[CompanyRecommendation]
 \end{itemize}
 \newpage
+
+\textbf{Webapp}
+\begin{itemize}
+    %%%%% NOTIFICATIONS
+    % called by internshipmanager
+    \item notifyOffer(studentId: int, internshipId: int) % sends a message to student with the proposed internship
+    \item notifySelection(studentId: int, internshipId: int) % after a student has been approved
+    
+    % called by applicationmanager
+    \item notifyUpdatedApplicationStatus(studentId: int, internshipId: int, applicationStatus: ApplicationStatus) % used by company to notify the student of the accept or reject fo the application
+    \item notifyNewApplication(studentId: int, internshipId: int) % the student has applied to the internship
+    
+    % called by feedbackmanager
+    \item notifyStudent(studentId: int, companyFeedbackId: int)
+    \item notifyCompany(companyId: int, studentFeedbackId: int)
+    \item notifyStudent(studentId: int, companyCommentId: int)
+    \item notifyCompany(companyId: int, studentCommentId: int)
+\end{itemize}
 
 \section{Selected architectural styles and patterns}
 
@@ -236,7 +262,7 @@ The Model-View-Controller pattern is a robust choice for implementing the S\&C p
 
 For the S\&C platform, all components except the Webapp will serve as the Model. The Webapp will handle both the View and Controller aspects, facilitating communication with the Model components and rendering the user interface by translating the data accordingly. 
 
-This division ensures a clear separation of concerns, enhancing scalability, promoting reusability, and maintaining the independence of each module, which simplifies maintenance and future development.
+This division ensures a clear separation of concerns, enhancing scalability, promoting reusability, and maintaining each module's independence, simplifying maintenance and future development.
 
 \section{Other design decisions}
 \subsection{Availability }
@@ -405,11 +431,11 @@ This section outlines the methodologies and strategies for implementing and test
 \section{Implementation plan}
 The \textbf{top-down approach} will be used to implement and integrate the various components of the system. This approach focuses on incremental integration and testing, starting from the highest-level interfaces and progressively working down to the lower-level modules.
 
-The process begins with the development and testing of top-level components, in this case, the Webapp containing the user interface and the API to communicate with the low-level components. Drivers are used to simulate interactions with these high-level interfaces, ensuring that they function correctly.
+The process begins with developing and testing top-level components, in this case, the Webapp containing the user interface and the API to communicate with the low-level components. Drivers are used to simulate interactions with these high-level interfaces, ensuring that they function correctly.
 
-To facilitate testing during development, placeholder stubs are introduced for lower-level components that are not yet implemented. These stubs simulate the behaviour of the missing components, enabling continuous testing of the integrated system without waiting for all components to be ready.
+To facilitate testing during development, placeholder stubs are introduced for lower-level components that have yet to be implemented. These stubs simulate the behaviour of the missing components, enabling continuous testing of the integrated system without waiting for all components to be ready.
 
-As individual components are completed, they replace their corresponding stubs, progressively expanding the functionality of the system. This iterative process also involves introducing new stubs as deeper levels of the system are developed, ensuring that integration and testing can continue seamlessly.
+As individual components are completed, they replace their corresponding stubs, progressively expanding the system's functionality. This iterative process also involves introducing new stubs as deeper system levels are developed, ensuring that integration and testing can continue seamlessly.
 
 Once all components have been implemented and integrated, the entire system undergoes comprehensive testing to validate its full functionality and adherence to the design specifications.
 
@@ -513,21 +539,25 @@ This section contains a record of the effort spent by each group member expresse
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Chapter} & \textbf{Section} & \textbf{Ilardi's hours} & \textbf{Luraghi's hours} & \textbf{Collaborative hours} \\ \hline
-\multirow{3}{*}{Chapter 1} & Section 1.1 & 0 & 0 & 1\\ \cline{2-5}
-                           & Section 1.2 & 0 & 0 & 2 \\ \cline{2-5}
-                           & Sections 1.3, 1.4, 1.5, 1.6 & 0 & 0 & 0.5 \\ \cline{2-5}
+\multirow{3}{*}{Chapter 1} & Section 1.1 & 0 & 0 & 0\\ \cline{2-5}
+                           & Section 1.2 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Sections 1.3, 1.4, 1.5, 1.6 & 0 & 0 & 0 \\ \cline{2-5}
                             \hline
-\multirow{4}{*}{Chapter 2} & Section 2.1 & 2 & 0 & 7 \\ \cline{2-5}
-                           & Section 2.2 & 0 & 1 & 0 \\ \cline{2-5}
-                           & Section 2.3 & 0 & 1 & 0 \\ \cline{2-5}
-                           & Section 2.4 & 0 & 0 & 1 \\ \hline
-\multirow{3}{*}{Chapter 3} & Section 3.1 & 0 & 4 & 1 \\ \cline{2-5}
-                           & Section 3.2 & 9 & 2 & 7 \\ \cline{2-5}
-                           & Sections 3.3, 3.4, 3.5 & 1 & 0 & 1 \\ \hline
-\multirow{1}{*}{Chapter 4} &  & 0 & 5 & 1 \\ \hline
-\multirow{1}{*}{Chapter 5} &  & 1 & 0 & 0 \\ \hline
-
-\multirow{1}{*}{\textbf{Total}} &  & 13 & 13 & 21.5 \\ \hline
+\multirow{7}{*}{Chapter 2} & Section 2.1 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 2.2 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 2.3 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 2.4 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 2.5 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 2.6 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 2.7 & 0 & 0 & 0 \\ \hline
+\multirow{1}{*}{Chapter 3} &  & 0 & 0 & 0 \\ \hline
+\multirow{1}{*}{Chapter 4} &  & 0 & 0 & 0 \\ \hline
+\multirow{5}{*}{Chapter 5} & Section 5.1 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 5.2 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 5.3 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 5.4 & 0 & 0 & 0 \\ \cline{2-5}
+                           & Section 5.5 & 0 & 0 & 0 \\ \hline
+\multirow{1}{*}{\textbf{Total}} &  & 0 & 0 & 0 \\ \hline
 
 \end{tabular}
 \end{table}
