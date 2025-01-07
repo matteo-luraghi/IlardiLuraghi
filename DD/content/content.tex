@@ -8,7 +8,7 @@ Additionally, S\&C supports the selection process by facilitating interviews and
 
 \section{Scope}
 As the RASD describes, two main users interact with the system: Students and Companies. \newline Students are individuals seeking internship opportunities. They can create and manage their profiles by uploading their CVs. The platform will notify students of relevant internship opportunities based on their profile information and allow them to apply directly. In addition, students can track their applications' status and receive company feedback. The system also provides a Recommendation Engine to suggest internships tailored to students' qualifications and preferences. Students can actively participate by proactively searching for internships or passively by checking suggested opportunities.\newline
-Companies are the organizations offering internship opportunities. They will be able to post internship vacancies, specifying the required skills, tasks, technologies, and terms. Companies can manage and edit their internship postings and review and evaluate student applications. The system will help companies identify students who best match their internship requirements through a recommendation system. Companies will also be able to schedule interviews, manage the selection process, and check and respond to feedback provided by students.
+Companies are the organizations offering internship opportunities. They will be able to post internship vacancies, specifying the required skills, tasks, technologies, and terms. Companies can manage and edit their internship postings and review and evaluate student applications. The system will help companies identify students who best match their internship requirements through the Recommendation Engine. Companies will also be able to schedule interviews, manage the selection process, and check and respond to feedback provided by students.
 
 
 \section{Definitions, Acronyms, Abbreviations}
@@ -59,14 +59,18 @@ The document is based on the following materials:
 \section{Overview: High-level components and their interaction}
 For the S\&C platform, we will adopt a three-tier architecture, a widely used software application design that separates the system into three distinct layers:  
 \begin{enumerate}
-    \item \textbf{Presentation Layer}: This is the user interface, where users interact with the application.  
-    \item \textbf{Application Layer}: This layer handles data processing and application logic. 
-    \item \textbf{Data Layer}: This is responsible for storing and managing the application's data.   
+    \item \textbf{Presentation Layer}: this is the user interface, where users interact with the application
+    \item \textbf{Application Layer}: this layer handles data processing and application logic
+    \item \textbf{Data Layer}: this is responsible for storing and managing the application's data
 \end{enumerate}
 
 The primary advantage of this architecture lies in its modularity. Each layer can be developed, maintained, and scaled independently by separate teams, ensuring greater flexibility and efficiency. Moreover, changes or scaling in one tier do not directly impact the others, making the system more adaptable to evolving requirements.
 
+\newpage
 \section{Component view}
+
+\subsection{Component diagram}
+\includegraphics[width=\textwidth]{DD/images/otherDiagrams/ComponentDiagram.png}
 
 The components that make up the application are the following:
 \begin{itemize}
@@ -78,10 +82,11 @@ The components that make up the application are the following:
     \item \textbf{CompanyProfileManager}: manages company profiles
     \item \textbf{FeedbackManager}: supports feedback submission and commenting
     \item \textbf{RecommendationEngine}: suggests internships and students based on preferences
-    \item \textbf{WebApp}: Serves as both the view and the controller. It routes user requests to the appropriate components, processes their responses, and sends the final view back to the end user
+    \item \textbf{WebApp}: serves as both the view and the controller. It routes user requests to the appropriate components, processes their responses, and sends the final view back to the end user
     \item \textbf{Database}: stores all of the application's data
 \end{itemize}
 
+\newpage
 \subsection{Class diagram}
 \includegraphics[width=\textwidth]{DD/images/otherDiagrams/ClassDiagram.png}
 
@@ -89,14 +94,16 @@ The components that make up the application are the following:
 \includegraphics[width=\textwidth]{DD/images/otherDiagrams/DeploymentView.png}
 The client-side S\&C app runs in the browser, and every client request is first processed by a firewall to detect and block any malicious activity. A load balancer prevents brute force attacks and ensures the server is not overwhelmed by excessive requests, protecting its CPU capacity. The application server, running in a Docker container, manages the server-side software architecture. The application server updates any changes to the database via TCP/IP. Running the server in a Docker container provides portability, scalability, and consistent environment management.
 
+\newpage
 \section{Runtime view}
 
 \begin{center}
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/SignupSequenceDiagram.png}
-    %\textbf{[UC1] User signs up}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/SignupSequenceDiagram.png}
+    \textbf{[UC1] User signs up}
+    
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/LoginSequenceDiagram.png}
-    %\textbf{[UC2] User logs in}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/LoginSequenceDiagram.png}
+    \textbf{[UC2] User logs in}
     
     \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentUploadsCV.png}
     \textbf{[UC3] Student uploads CV}
@@ -119,39 +126,41 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/DeleteInternshipAnnouncementSequenceDiagram.png}
     \textbf{[UC9] Company deletes an internship announcement}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/ReviewStudentCVSequenceDiagram.png}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/ReviewStudentCVSequenceDiagram.png}
     \textbf{[UC10] Company reviews a student's application}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyOffersInternshipSequenceDiagram.png}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyOffersInternshipSequenceDiagram.png}
     \textbf{[UC11] Company offers an internship to a student}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/InterviewSetupSequenceDiagram.png}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/InterviewSetupSequenceDiagram.png}
     \textbf{[UC12] Student and company set up the interview}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/InterviewMeetupSequenceDiagram.png}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/InterviewMeetupSequenceDiagram.png}
     \textbf{[UC13] Student and company meet for the interview}
 
     \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyAdmitsStudentToInternship.png}
     \textbf{[UC14] Company admits a student to an internship}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentFeedbackSequenceDiagram.png}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentFeedbackSequenceDiagram.png}
     \textbf{[UC15] Student provides feedback on an internship}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyFeedbackSequenceDiagram.png}
+    \newpage
+\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyFeedbackSequenceDiagram.png}
     \textbf{[UC16] Company provides feedback on a student}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentAnswerSequenceDiagram.png}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/StudentAnswerSequenceDiagram.png}
     \textbf{[UC17] Student answers a comment about them}
 
-    %\includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyAnswerSequenceDiagram.png}
-    \textbf{[UC18] Company answers a comment about an internship if offered}
+    \includegraphics[width=\textwidth]{DD/images/sequenceDiagrams/CompanyAnswerSequenceDiagram.png}
+    \textbf{[UC18] Company answers a comment about an internship it offered}
 \end{center}
 
+\newpage
 \section{Component interfaces}
 
 \textbf{AuthenticationManager}
 \begin{itemize}
-    \item getRegistrationForm(role: enum(COMPANY, STUDENT))
+    \item getRegistrationForm(role: enum(COMPANY, STUDENT)) : json
     \item signUpUser(personalData: json)
     \item loginUser(credentials: json)
 \end{itemize}
@@ -164,7 +173,7 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \item getInternship(internshipId: int) : Internship % CONTAINS STUDENT FEEDBACKS (and company comments)
     \item getApplications(inernshipId: int) : List[Application]
     \item selectStudent(internshipId: int, studentId: int) % accept the student to the internship
-    \item createInternship(companyId: int, internshipData: json) % elaborate "data"
+    \item createInternship(companyId: int, internshipData: json)
     \item modifyInternship(internshipId: int, internshipData: json)
     \item deleteInternship(internshipId: int)
     \item suggestInternshipToStudent(studentId: int, internshipId: int)
@@ -190,6 +199,7 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \item joinInterview(interviewId: int)
 \end{itemize}
 
+\newpage
 \textbf{StudentProfileManager}
 \begin{itemize}
     \item updateStudentProfileInfo(studentId: int, data: json)
@@ -211,9 +221,9 @@ The client-side S\&C app runs in the browser, and every client request is first 
     % by a company about a student on a particular internship
     \item submitCompanyFeedback(internshipId: int, studentId: int, feedbackContent: String)
      % company answers, return is a companyComment
-    \item answerStudentFeedback(companyId: int, studentId: int, answerContent: String, studentFeedbackId: int)
+    \item answerStudentFeedback(companyId: int, studentId: int, answerContent: String, \newline studentFeedbackId: int)
      % student answers, return is a studentComment
-    \item answerCompanyFeedback(studentId: int, companyId: int, answerContent: String, companyFeedbackId: int)
+    \item answerCompanyFeedback(studentId: int, companyId: int, answerContent: String, \newline companyFeedbackId: int)
 \end{itemize}
 
 \textbf{RecommendationEngine}
@@ -221,7 +231,6 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \item getStudentSuggestions(studentId: int) : List[StudentRecommendation]
     \item getInternshipSuggestions(internshipId: int) : List[CompanyRecommendation]
 \end{itemize}
-\newpage
 
 \textbf{Webapp}
 \begin{itemize}
@@ -231,7 +240,7 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \item notifySelection(studentId: int, internshipId: int) % after a student has been approved
     
     % called by applicationmanager
-    \item notifyUpdatedApplicationStatus(studentId: int, internshipId: int, applicationStatus: ApplicationStatus) % used by company to notify the student of the accept or reject fo the application
+    \item notifyUpdatedApplicationStatus(studentId: int, internshipId: int, \newline applicationStatus: ApplicationStatus) % used by company to notify the student of the accept or reject fo the application
     \item notifyNewApplication(studentId: int, internshipId: int) % the student has applied to the internship
     
     % called by feedbackmanager
@@ -241,15 +250,17 @@ The client-side S\&C app runs in the browser, and every client request is first 
     \item notifyCompany(companyId: int, studentCommentId: int)
 \end{itemize}
 
+\newpage
+
 \section{Selected architectural styles and patterns}
 
 \subsection{3-tier architecture}
 The system follows a 3-tier architectural style due to its numerous benefits, with modularization into three independent layers being the most significant. These layers are:  
 
 \begin{itemize}
-    \item \textbf{Web Server (Presentation Tier):} this layer handles the user interface, presented as a website
-    \item \textbf{Application Server (Middle Tier):} this layer is responsible for implementing the business logic and runs the S\&C server in a Docker container
-    \item \textbf{Database Server (Backend Tier):} this layer manages data storage and retrieval, operating on a database management system (DBMS)
+    \item \textbf{Client (Presentation Tier):} handles the user interface, presented as a website
+    \item \textbf{Application Server (Middle Tier):} is responsible for implementing the business logic and runs the S\&C server in a Docker container
+    \item \textbf{Database (Backend Tier):} manages data storage and retrieval, operating on a database management system (DBMS)
 \end{itemize}
 
 \subsection{Model View Controller pattern}
@@ -415,7 +426,7 @@ Security is managed through a firewall, it acts as a barrier between the interna
 \begin{tabular}{|p{3cm}|p{9cm}|}
     \hline
 \textbf{Requirements} & \textbf{Company feedback submission} \newline [R26] The System shall ask Companies to provide feedback about the Student's performance by filling out a form \newline [R27] The System shall allow Students to publicly comment on the feedback they received  \newline [R28] The System shall allow Companies to see feedback about Students from past internships they partook in \\  \hline
-    \textbf{Components} & Webapp \newline StudentProfileManager \newline Database \\ \hline
+    \textbf{Components} & Webapp \newline FeedbackManager \newline StudentProfileManager \newline Database \\ \hline
     \end{tabular}
     \newline
     \newline
@@ -441,19 +452,57 @@ Once all components have been implemented and integrated, the entire system unde
 
 The advantages of this approach are: early validation through high-level interface testing, continuous incremental testing to address issues early and reduce risks, modular flexibility for parallel development, and controlled alignment with system design and requirements throughout the process.
 
-\section{Components integration and testing}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                IMPLEMENTATION PLAN                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Components Integration and Testing}
+As previously stated, the chosen approach for integration and testing consists of an incremental top-down approach. The order in which modules are implemented was chosen based on the top-down philosophy (higher-level modules first), with high consideration for the convenience and priority of each module. It is more logical to develop modules in close phases when they interact with each other or are present in the same use cases.
 
-% 1. StudentProfileManager, CompanyProfileManager
-% 2. AuthenticationManager
-% 3. InternshipManager
-% 4. ApplicationManager
-% 5. ReommendationEngine
-% 6. InterviewManager
-% 7. FeedbackManager
+The Webapp component is the core controller and view of the system, responsible for managing user interactions and coordinating the behaviour of all other components. Given its critical role, it will be implemented first to establish a foundation for the integration and testing of other components. While it serves as the central hub, it will not be explicitly shown in the implementation diagrams to maintain diagram clarity and focus on the functional relationships among individual components.
+\newline
 
+\textbf{Profile Managers}
+\newline
+\includegraphics[width=\textwidth]{DD/images/implementation/phase1}
+The first phase addresses the implementation of the \texttt{StudentProfileManager} and \texttt{CompanyProfileManager} modules. Both of these rely on the existence of persistent data; therefore, a database prototype or stub is expected to be used while a separate team develops the actual database. The stub could contain mock company profiles and mock student profiles, allowing testing of the main functionalities of the components as soon as they are released without waiting for the rest of the system.
+\newline
+
+\textbf{Authentication}
+\newline
+\includegraphics[width=\textwidth]{DD/images/implementation/phase2}
+This phase focuses on the release of the \texttt{AuthenticationManager}, which is closely tied to the \texttt{StudentProfileManager} and the \texttt{CompanyProfileManager}. The only use cases in which this component is involved are the sign-up and login use cases, but they are crucial for a user-based platform such as S\&C. The functionalities of the \texttt{AuthenticationManager} are also tied to the database since it will execute both read and write operations.
+
+\newpage
+\textbf{Internships}
+\newline
+\includegraphics[width=\textwidth]{DD/images/implementation/phase3}
+This phase focuses on the implementation of the heart of the system: the \texttt{InternshipManager}, which manages everything related to internships. This component plays a role in the majority of use cases and interacts with many other components. Therefore, it may be useful to include a stub for the \texttt{ApplicationManager} (to be used by the \texttt{InternshipManager}) and a driver for the \texttt{InterviewManager}, which relies on the \texttt{InternshipManager}.
+
+\newpage
+\textbf{Applications}
+\newline
+\includegraphics[width=\textwidth]{DD/images/implementation/phase4}
+In this phase, the \texttt{ApplicationManager} is implemented. This is another crucial part of the system, closely tied to the \texttt{InternshipManager}. It will replace the stub previously used as a placeholder.
+
+\newpage
+\textbf{Recommendation Engine}
+\newline
+\includegraphics[width=\textwidth]{DD/images/implementation/phase5}
+In this phase, the interface to the actual \texttt{RecommendationEngine} is built and subsequently unit-tested. The system interacts with the \texttt{RecommendationEngine} through an API. Since the \texttt{RecommendationEngine} is expected to be well-built, this phase should proceed smoothly. At this point in development, the database should be fully functional and properly interfaced with the software under construction.
+\newline
+
+\newpage
+\textbf{Interviews}
+\newline
+\includegraphics[width=\textwidth]{DD/images/implementation/phase6}
+This phase implements the mechanisms for interviews through the \texttt{InterviewManager} component. This component must also interface with the third-party app for interviews. The actual component will replace the previously used driver.
+\newline
+
+\newpage
+\textbf{Feedback and Comments}
+\newline
+\includegraphics[width=\textwidth]{DD/images/implementation/phase7}
+In the final phase, the \texttt{FeedbackManager} is developed. This component is left for last as it provides peripheral functionalities subordinate to other important and central parts of the software.
+
+\newpage
 \section{System testing}
 The S\&C platform must be thoroughly tested to ensure its functionalities meet the expectations defined during the design and development phases. Each system component will undergo rigorous testing to identify and resolve potential issues. Some components may need stub and driver implementations to simulate interactions with missing or incomplete modules during early development stages: this allows us to test the components separately and independently from one another although they interact with each other. Once individual components are validated, they are incrementally integrated into the overall system for further testing.
 
@@ -463,43 +512,43 @@ The primary goal of system testing is to verify that the platform fulfils both f
 \item \textbf{Functional Testing}
 This phase ensures that the platform's functionalities align with the requirements. For S\&C, this involves:
 \begin{itemize}
-    \item Testing whether students can upload their CVs, browse and apply for internships, and participate in interviews.
-    \item Verifying the recommendation engine’s ability to suggest internships and candidates accurately.
-    \item Ensuring companies can create and manage internship announcements, review applications, and manage interviews effectively.
-    \item Ensuring that both companies and students can provide feedback on each other and respond to comments.
+    \item testing whether students can upload their CVs, browse and apply for internships, and participate in interviews
+    \item verifying the recommendation engine’s ability to suggest internships and candidates accurately
+    \item ensuring companies can create and manage internship announcements, review applications, and manage interviews effectively
+    \item ensuring that both companies and students can provide feedback on each other and respond to comments
 \end{itemize}
 These tests will primarily follow the use cases outlined in the RASD document.
 
 \item \textbf{Performance Testing}
 The platform must handle peak loads, especially during high-traffic periods such as application deadlines. Performance testing will:
 \begin{itemize}
-    \item Detect bottlenecks affecting response times, system throughput, and resource utilization.
-    \item Identify optimization opportunities for algorithms managing CV matching and recommendations.
-    \item Simulate workloads to ensure acceptable system performance under expected and peak conditions.
+    \item detect bottlenecks affecting response times, system throughput, and resource utilization
+    \item identify optimization opportunities for algorithms managing CV matching and recommendations
+    \item simulate workloads to ensure acceptable system performance under expected and peak conditions
 \end{itemize}
 
 \item \textbf{Usability Testing}
 This phase focuses on evaluating the user interface and overall user experience. Usability tests will:
 \begin{itemize}
-    \item Observe real users (students and companies) performing typical tasks.
-    \item Gather feedback on the ease of use and intuitiveness of the platform's design.
-    \item Make iterative improvements to address usability concerns.
+    \item observe real users (students and companies) performing typical tasks
+    \item gather feedback on the ease of use and intuitiveness of the platform's design
+    \item make iterative improvements to address usability concerns
 \end{itemize}
 
 \item \textbf{Load Testing}
 Load testing will expose the system to increasing workloads to determine its limits. For S\&C, this includes:
 \begin{itemize}
-    \item Simulating thousands of concurrent users uploading CVs or browsing internships.
-    \item Stressing the recommendation engine with large datasets of CVs and internship postings.
-    \item Ensuring the system remains responsive during prolonged periods of high activity.
+    \item simulating thousands of concurrent users uploading CVs or browsing internships
+    \item stressing the recommendation engine with large datasets of CVs and internship postings
+    \item ensuring the system remains responsive during prolonged periods of high activity
 \end{itemize}
 
 \item \textbf{Stress Testing}
 Stress testing will ensure the platform recovers after failures by:
 \begin{itemize}
-    \item Overloading system resources (e.g., memory, CPU) and observing recovery mechanisms.
-    \item Simulating unexpected network failures and verifying system stability.
-    \item Validating the integrity of stored data after failure scenarios.
+    \item overloading system resources (e.g., memory, CPU) and observing recovery mechanisms
+    \item simulating unexpected network failures and verifying system stability
+    \item validating the integrity of stored data after failure scenarios
 \end{itemize}
 
 \end{itemize}
@@ -508,28 +557,24 @@ Stress testing will ensure the platform recovers after failures by:
 \section{Additional Specifications on Testing}
 To ensure continuous improvement, the development team will collect feedback at every stage of testing. This feedback will guide adjustments to the platform before deployment.
 
-\subsection{Alpha Testing}
+\textbf{Alpha Testing}
 During alpha testing, stakeholders such as students and companies will interact with the platform in a controlled environment. Usability experts may design structured questionnaires to assess satisfaction levels and pinpoint usability issues. This phase will identify malfunctions and areas for improvement before proceeding to beta testing.
 
-\subsection{Beta Testing}
+\textbf{Beta Testing}
 Beta testing involves releasing the platform to a limited group of real users under production-like conditions. Key objectives include:
 \begin{itemize}
-    \item Uncovering bugs or issues in a live environment.
-    \item Collecting feedback on user satisfaction and system functionality.
-    \item Logging system errors to be addressed before general release.
+    \item uncovering bugs or issues in a live environment
+    \item collecting feedback on user satisfaction and system functionality
+    \item logging system errors to be addressed before general release
 \end{itemize}
 
-\subsection{Post-release Monitoring}
+\textbf{Post-release Monitoring}
 After deployment, the platform will continue to be monitored for issues. Logs will be automatically generated and sent to developers to facilitate debugging and future updates. Regular feedback from users will further ensure that the platform evolves to meet their needs.
 
 \newpage
 
 \chapter{Effort Spent}
 \label{Effort Spent}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                   TODO                     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This section contains a record of the effort spent by each group member expressed in hours of work for each section of each chapter
 
@@ -539,25 +584,24 @@ This section contains a record of the effort spent by each group member expresse
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Chapter} & \textbf{Section} & \textbf{Ilardi's hours} & \textbf{Luraghi's hours} & \textbf{Collaborative hours} \\ \hline
-\multirow{3}{*}{Chapter 1} & Section 1.1 & 0 & 0 & 0\\ \cline{2-5}
-                           & Section 1.2 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Sections 1.3, 1.4, 1.5, 1.6 & 0 & 0 & 0 \\ \cline{2-5}
+\multirow{2}{*}{Chapter 1} & Section 1.1, 1.2 & 0 & 0 & 1\\ \cline{2-5}
+                           & Sections 1.3, 1.4, 1.5, 1.6 & 0 & 0 & 0.5 \\ \cline{2-5}
                             \hline
-\multirow{7}{*}{Chapter 2} & Section 2.1 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 2.2 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 2.3 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 2.4 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 2.5 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 2.6 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 2.7 & 0 & 0 & 0 \\ \hline
-\multirow{1}{*}{Chapter 3} &  & 0 & 0 & 0 \\ \hline
-\multirow{1}{*}{Chapter 4} &  & 0 & 0 & 0 \\ \hline
-\multirow{5}{*}{Chapter 5} & Section 5.1 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 5.2 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 5.3 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 5.4 & 0 & 0 & 0 \\ \cline{2-5}
-                           & Section 5.5 & 0 & 0 & 0 \\ \hline
-\multirow{1}{*}{\textbf{Total}} &  & 0 & 0 & 0 \\ \hline
+\multirow{7}{*}{Chapter 2} & Section 2.1 & 0 & 0.5 & 0 \\ \cline{2-5}
+                           & Section 2.2 & 4 & 3 & 3 \\ \cline{2-5}
+                           & Section 2.3 & 0 & 0.5 & 0 \\ \cline{2-5}
+                           & Section 2.4 & 6 & 4 & 2 \\ \cline{2-5}
+                           & Section 2.5 & 0 & 3 & 3 \\ \cline{2-5}
+                           & Section 2.6 & 0 & 1 & 0.5 \\ \cline{2-5}
+                           & Section 2.7 & 0 & 0 & 0.5 \\ \hline
+\multirow{1}{*}{Chapter 3} &  & 0 & 1 & 0 \\ \hline
+\multirow{1}{*}{Chapter 4} &  & 0 & 1.5 & 0 \\ \hline
+\multirow{4}{*}{Chapter 5} & Section 5.1 & 0 & 0 & 0.5 \\ \cline{2-5}
+                           & Section 5.2 & 0 & 1 & 0.5 \\ \cline{2-5}
+                           & Section 5.3 & 3 & 0 & 0 \\ \cline{2-5}
+                           & Section 5.4 & 1 & 0 & 0 \\ \cline{2-5}
+                           & Section 5.5 & 0.5 & 0 & 1 \\ \hline
+\multirow{1}{*}{\textbf{Total}} &  & 14.5 & 15.5 & 12.5 \\ \hline
 
 \end{tabular}
 \end{table}
